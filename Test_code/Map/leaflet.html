@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Leaflet SVG Garden Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <style>
+      #map {
+        width: 100%;
+        max-width: 600px;
+        height: 400px;
+        border: 1px solid #ccc;
+      }
+      .leaflet-container {
+        background: #e0f2f1;
+      }
+      .plant {
+        cursor: pointer;
+        transition: fill 0.3s;
+      }
+      .plant:hover {
+        fill: #8bc34a;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+      const gardenBounds = [
+        [50.828992, 3.26934],
+        [50.829571, 3.270335],
+      ];
+
+      const map = L.map("map").fitBounds(gardenBounds);
+
+      const svgContent = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+        <rect x="10" y="10" width="580" height="380"
+              fill="#e0f2f1" stroke="#00695c" stroke-width="2"/>
+        <circle class="plant" cx="150" cy="150" r="15" fill="#9c27b0" />
+        <circle class="plant" cx="300" cy="250" r="15" fill="#ff9800" />
+        <circle class="plant" cx="450" cy="180" r="15" fill="#4caf50" />
+        <text x="150" y="130" font-size="12" text-anchor="middle">Lavender</text>
+        <text x="300" y="230" font-size="12" text-anchor="middle">Angelica</text>
+        <text x="450" y="160" font-size="12" text-anchor="middle">Yarrow</text>
+      </svg>
+    `;
+
+      const svgOverlay = L.svgOverlay(
+        new DOMParser().parseFromString(svgContent, "image/svg+xml")
+          .documentElement,
+        gardenBounds
+      ).addTo(map);
+
+      const userMarker = L.circleMarker([0, 0], {
+        radius: 8,
+        color: "white",
+        fillColor: "red",
+        fillOpacity: 1,
+        weight: 2,
+      }).addTo(map);
+
+      if ("geolocation" in navigator) {
+        navigator.geolocation.watchPosition(
+          (pos) => {
+            const latlng = [pos.coords.latitude, pos.coords.longitude];
+            if (
+              latlng[0] >= gardenBounds[0][0] &&
+              latlng[0] <= gardenBounds[1][0] &&
+              latlng[1] >= gardenBounds[0][1] &&
+              latlng[1] <= gardenBounds[1][1]
+            ) {
+              userMarker.setLatLng(latlng);
+            } else {
+              userMarker.setLatLng([0, 0]);
+            }
+          },
+          (err) => {
+            console.error("Location error", err);
+          },
+          {
+            enableHighAccuracy: true,
+            maximumAge: 1000,
+            timeout: 5000,
+          }
+        );
+      } else {
+        alert("Geolocation not supported.");
+      }
+    </script>
+  </body>
+</html>
