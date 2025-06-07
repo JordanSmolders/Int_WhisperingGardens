@@ -1,0 +1,72 @@
+body {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 45px;
+}
+
+.carousel-wrapper {
+  perspective: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+  transform: rotateX(70deg);
+}
+
+.circle {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease;
+  --circle-rotation: rotateX(-70deg);
+  transform: translate(-50%, -50%) var(--circle-rotation);
+  z-index: 20;
+}
+
+.circle.active {
+  transform: translate(-50%, -50%) var(--circle-rotation);
+  z-index: 10;
+  width: 150px;
+  height: 150px;
+}
+
+.buttons {
+  margin-top: 10rem;
+  display: flex;
+  gap: 1rem;
+}
+
+button {
+  background: #222;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.carousel,
+.carousel-container {
+  overflow: visible;
+}
