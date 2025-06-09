@@ -1,0 +1,135 @@
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: -0.625rem 2.8125rem;
+  transform: rotate(180deg);
+}
+
+.carousel {
+  position: relative;
+  width: 24.375rem;
+  height: 37.5rem;
+  overflow: hidden;
+}
+
+.circle {
+  position: absolute;
+  width: 2.125rem;
+  height: 2.125rem;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  transform: translate(-50%, -50%);
+}
+
+.circle.active {
+  transform: translate(-50%, -50%);
+  width: 9.375rem;
+  height: 9.375rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1.25rem;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+button:first-child {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.orange {
+  background-color: var(--color-orange);
+  z-index: 1;
+}
+
+.green {
+  background-color: var(--color-green);
+  z-index: 2;
+}
+
+.yellow {
+  background-color: var(--color-yellow);
+  z-index: 3;
+}
+
+.blue {
+  background-color: var(--color-blue);
+  z-index: 4;
+}
+
+.purple {
+  background-color: var(--color-purple);
+  z-index: 5;
+}
+
+.bracelet-ring {
+  position: absolute;
+  rotate: 10deg;
+  top: 13%;
+  right: 50%;
+}
+
+.logo {
+  width: 8.875rem;
+  height: 2.375rem;
+  position: absolute;
+  top: 3.625rem;
+  left: 2.0625rem;
+}
+
+.content {
+  margin-top: -12rem;
+}
+
+h1 {
+  width: 17.5rem;
+  font-size: 2.375rem;
+  color: var(--color-white);
+}
+
+.text-container {
+  padding-top: 7rem;
+  padding-left: 1.5rem;
+}
+
+.text-container-info {
+  color: var(--color-white);
+  width: 17.1875rem;
+  height: 7.5rem;
+}
+
+.green-background {
+  position: absolute;
+  z-index: -1;
+}
+
+.circle-icon {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  transform: translate(-25%, -25%);
+  -webkit-transform: scaleY(-1);
+  transform: scaleY(-1);
+}
+
+.circle.active .circle-icon {
+  opacity: 1;
+}
