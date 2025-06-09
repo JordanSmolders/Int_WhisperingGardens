@@ -1,7 +1,23 @@
 const circles = document.querySelectorAll('.circle');
 const nextBtn = document.querySelector('#nextBtn');
 const prevBtn = document.querySelector('#prevBtn');
+const titleText = document.querySelector('#text-title');
+const infoText = document.querySelector('#text-info');
 let activeIndex = 4;
+
+const text = [
+  {title: "Ready when you are", info: "Abby is yours to explore. Tap the map, follow a feeling, or just take a breath.There’s no rush. Everything you need is already here."},
+  {title: "Your voice, without sound", info: "Leave a signal — a photo, a thought, a movement. It becomes part of a glowing sculpture that grows with every response. The more we interact, the brighter it glows."},
+  {title: "A journey you can wear", info: "In each zone, you’ll collect a token. The more you explore, the more materials, colors, textures, charms you unlock. You’ll use them to craft your own bracelet. A reminder of your journey."},
+  {title: "Every part counts", info: "Move through the garden at your own pace. Zone 1: Heal your body with real plants Zone 2: Calm your mind with guided breathing Zone 3: Leave a mark. Find connection"},
+  {title: "Welkome to ABBY!", info: "You’ve just stepped into Abby — va garden designed to help you slow down, heal, and connect. There’s no right way to start. Just follow what feels right."},
+]
+
+function updateText() {
+  const current = text[activeIndex];
+  titleText.textContent = current.title;
+  infoText.textContent = current.info;
+}
 
 function circleSize(relativeIndex) {
   const sizeMap = {
@@ -47,6 +63,7 @@ nextBtn.addEventListener('click', () => {
   if (activeIndex > 0) {
     activeIndex--;
     updateCarousel();
+    updateText();
   }
 });
 
@@ -54,7 +71,9 @@ prevBtn.addEventListener('click', () => {
   if (activeIndex < circles.length - 1) {
     activeIndex++;
     updateCarousel();
+    updateText();
   }
 });
 
 updateCarousel();
+updateText();
