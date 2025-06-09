@@ -1,0 +1,79 @@
+@font-face {
+  font-family: "GT Alpina Fine";
+  src: url("../fonts/GTAlpinaFineTrial-Bold.woff2") format("woff2"),
+    url("../fonts/GTAlpinaFineTrial-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT Walsheim Bold";
+  src: url("../fonts/GTWalsheimTrial-Bd.woff2") format("woff2"),
+    url("../fonts/GTWalsheimTrial-Bd.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT Walsheim Regular";
+  src: url("../fonts/GTWalsheimTrial-Rg.woff2") format("woff2"),
+    url("../fonts/GTWalsheimTrial-Rg.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT Walsheim Medium";
+  src: url("../fonts/GTWalsheimTrial-Md.woff2") format("woff2"),
+    url("../fonts/GTWalsheimTrial-Md.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-green: #00a468;
+  --color-yellow: #ffbf50;
+  --color-purple: #bb7cd2;
+  --color-orange: #ff5f00;
+  --color-blue: #5f90ff;
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  font-family: "GT Walsheim Regular", Arial;
+  line-height: 1.09;
+
+  color: var(--color-black);
+  background-color: var(--color-white);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--color-black);
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+button {
+  border-radius: 3.125rem;
+  border: none;
+  padding: 0.625rem;
+  font-size: 1em;
+  font-family: "GT Walsheim Regular";
+  background-color: var(--color-green);
+  color: var(--color-white);
+  cursor: pointer;
+}
