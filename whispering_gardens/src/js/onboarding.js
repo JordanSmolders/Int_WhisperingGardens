@@ -3,6 +3,7 @@ const nextBtn = document.querySelector('#nextBtn');
 const prevBtn = document.querySelector('#prevBtn');
 const titleText = document.querySelector('#text-title');
 const infoText = document.querySelector('#text-info');
+const skip = document.querySelector('#skip');
 let activeIndex = 4;
 
 const text = [
@@ -59,12 +60,25 @@ function updateCarousel() {
   });
 }
 
+function updateButtons() {
+  nextBtn.classList.toggle('hidden', activeIndex === 0);
+  prevBtn.classList.toggle('hidden', activeIndex === circles.length - 1);
+  skip.classList.toggle('continue', activeIndex === 0);
+    if (activeIndex === 0) {
+    skip.textContent = 'Start Exploring';
+    } else {
+    skip.textContent = 'Skip onboarding';
+    }
+}
+
 nextBtn.addEventListener('click', () => {
   if (activeIndex > 0) {
     activeIndex--;
     updateCarousel();
     updateText();
+    updateButtons();
   }
+
 });
 
 prevBtn.addEventListener('click', () => {
@@ -72,8 +86,10 @@ prevBtn.addEventListener('click', () => {
     activeIndex++;
     updateCarousel();
     updateText();
+    updateButtons();
   }
 });
+
 
 updateCarousel();
 updateText();

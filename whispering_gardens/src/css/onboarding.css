@@ -34,13 +34,15 @@
   justify-content: space-around;
   align-items: center;
   margin-top: 1.25rem;
+  height: 47.1px;
 }
 
 button {
+  display: flex;
   background-color: transparent;
   border: none;
   font-size: 1.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0;
   cursor: pointer;
   border-radius: 0.5rem;
 }
@@ -132,4 +134,18 @@ h1 {
 
 .circle.active .circle-icon {
   opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.continue {
+  text-decoration: none;
+  background-color: var(--color-white);
+  padding: 0.925rem 2.15rem;
 }
