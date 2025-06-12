@@ -2,6 +2,11 @@
   const zonesTab = document.querySelector("#zonesTab")
   const mapContent = document.querySelector("#mapContent")
   const zonesContent = document.querySelector("#zonesContent")
+  const menuButton = document.querySelector(".menu-btn");
+  const closeButton = document.querySelector("#closeNav");
+  const navOverlay = document.querySelector("#navOverlay")
+
+
 
   function switchTab(activeTab, inactiveTab, showContent, hideContent) {
     activeTab.classList.add("active")
@@ -21,6 +26,16 @@
     if (!zonesTab.classList.contains("active")) {
       switchTab(zonesTab, mapTab, zonesContent, mapContent)
     }
+  })
+
+  document.querySelector(".menu-btn").addEventListener("click", () => {
+    navOverlay.classList.add("active")
+    document.body.style.overflow = "hidden" 
+  })
+
+  document.getElementById("closeNav").addEventListener("click", () => {
+    navOverlay.classList.remove("active")
+    document.body.style.overflow = "auto" 
   })
 
 
