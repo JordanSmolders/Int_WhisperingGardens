@@ -23,3 +23,61 @@
     }
   })
 
+
+   const gardenBounds = [
+        [50.828992, 3.26934],
+        [50.829571, 3.270335],
+      ];
+
+      const center = [
+        (gardenBounds[0][0] + gardenBounds[1][0]) / 2,
+        (gardenBounds[0][1] + gardenBounds[1][1]) / 2,
+      ];
+
+      const zoom = 20;
+
+      const map = L.map("map", { zoomControl: false }).setView(center, zoom);
+      L.control.zoom({ position: "bottomright" }).addTo(map);
+
+      const imageUrl = "src/assets/map.png";
+
+      const imageOverlay = L.imageOverlay(imageUrl, gardenBounds).addTo(map);
+
+      const userMarker = L.circleMarker([0, 0], {
+        radius: 8,
+        color: "white",
+        fillColor: "red",
+        fillOpacity: 1,
+        weight: 2,
+      }).addTo(map);
+
+      userMarker.bringToFront();
+
+      if ("geolocation" in navigator) {
+        navigator.geolocation.watchPosition(
+          (pos) => {
+            const latlng = [pos.coords.latitude, pos.coords.longitude];
+            if (
+              latlng[0] >= gardenBounds[0][0] &&
+              latlng[0] <= gardenBounds[1][0] &&
+              latlng[1] >= gardenBounds[0][1] &&
+              latlng[1] <= gardenBounds[1][1]
+            ) {
+              userMarker.setLatLng(latlng);
+            } else {
+              userMarker.setLatLng([0, 0]);
+            }
+          },
+          (err) => {
+            console.error("Location error", err);
+          },
+          {
+            enableHighAccuracy: true,
+            maximumAge: 1000,
+            timeout: 5000,
+          }
+        );
+      } else {
+        alert("Geolocation not supported.");
+      }
+

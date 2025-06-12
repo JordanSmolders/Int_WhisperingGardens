@@ -6,6 +6,10 @@
     <title>ABBY</title>
     <link rel="stylesheet" href="src/css/style.css" />
     <link rel="stylesheet" href="src/css/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
   </head>
   <body>
     <header class="header">
@@ -79,7 +83,15 @@
       </button>
     </div>
 
-    <div class="content-section" id="mapContent"></div>
+    <div class="content-section" id="mapContent">
+      <div id="map">
+        <div class="map-buttons">
+          <button class="map-btn zone-1-btn">Zone 1 ></button>
+          <button class="map-btn zone-2-btn">Zone 2 ></button>
+          <button class="map-btn zone-3-btn">Zone 3 ></button>
+        </div>
+      </div>
+    </div>
 
     <div class="content-section" id="zonesContent" style="display: none">
       <div class="intro-section">
@@ -153,6 +165,7 @@
         </svg>
       </div>
     </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="src/js/home.js"></script>
   </body>
 </html>
