@@ -1,0 +1,218 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 52px;
+  padding: 10px;
+  background-color: var(--color-white);
+}
+
+.logo-container {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.logo-container img {
+  width: 142px;
+  height: 38px;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.language-btn {
+  background: var(--color-green);
+  color: var(--color-black);
+  border: none;
+  height: 50px;
+  width: 50px;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.menu-btn {
+  background-color: var(--color-blue);
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tab-container {
+  display: flex;
+  margin: 30px;
+  overflow: hidden;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 15px 20px;
+  border: 1px solid var(--color-green);
+  background-color: var(--color-white);
+  color: var(--color-green);
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.62rem;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  background-color: var(--color-green);
+  color: var(--color-white);
+}
+
+.tab-btn svg path {
+  fill: var(--color-green);
+  transition: fill 0.3s ease;
+}
+
+.tab-btn.active svg path {
+  fill: var(--color-white);
+}
+
+.intro-section {
+  background-color: var(--color-white);
+  height: 93px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.intro-section svg {
+  position: absolute;
+  right: 0%;
+  top: 0;
+  z-index: 1;
+}
+
+.zones-container {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 40px;
+}
+
+.zone-card {
+  background-color: #ededed;
+  width: 16.3125rem;
+  padding-bottom: 30px;
+  height: fit-content;
+  position: relative;
+}
+
+.zone-content {
+  margin-top: 17px;
+  margin-left: 22px;
+}
+
+.zone-content h3 {
+  color: var(--color-black);
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: "GT Walsheim Bold";
+  letter-spacing: -0.0225rem;
+  margin-bottom: 0.2rem;
+}
+
+.svg-text {
+  font-size: 17px;
+  font-family: "GT Walsheim Regular";
+  fill: var(--color-black);
+}
+
+.svg-title {
+  font-size: 24px;
+  font-family: "GT Walsheim Bold";
+  fill: var(--color-black);
+}
+
+.zone-content p {
+  margin: 0;
+  color: var(--color-black);
+  font-family: "GT Walsheim Regular";
+  font-size: 1.0625rem;
+  line-height: 109%;
+  letter-spacing: -0.01594rem;
+  width: 180px;
+}
+
+.zone-btn {
+  padding: 9px 24px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 13px;
+  position: absolute;
+  left: 28%;
+  bottom: -15%;
+}
+
+.zone-1-btn {
+  background-color: var(--color-yellow);
+  color: var(--color-black);
+}
+
+.zone-2-btn {
+  background-color: var(--color-purple);
+  color: var(--color-black);
+}
+
+.zone-3-btn {
+  background-color: var(--color-orange);
+  color: var(--color-white);
+}
+
+.zone-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: -10%;
+  top: 20%;
+}
+
+.zone-1-icon {
+  background-color: var(--color-yellow);
+}
+
+.zone-2-icon {
+  background-color: var(--color-purple);
+}
+
+.zone-3-icon {
+  background-color: var(--color-orange);
+}
+
+.statue-section {
+  background-color: var(--color-white);
+  position: relative;
+  margin-bottom: 40px;
+  overflow: hidden;
+  height: 98px;
+}
+
+.statue-section svg {
+  position: absolute;
+  left: 0%;
+  top: 0;
+  z-index: 1;
+}

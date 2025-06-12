@@ -71,14 +71,3 @@ h1 {
   font-size: 3rem;
   font-family: "GT Walsheim Bold", Arial;
 }
-
-button {
-  border-radius: 3.125rem;
-  border: none;
-  padding: 0.625rem;
-  font-size: 1em;
-  font-family: "GT Walsheim Regular";
-  background-color: var(--color-green);
-  color: var(--color-white);
-  cursor: pointer;
-}
