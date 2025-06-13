@@ -1,0 +1,359 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3.25rem;
+  padding: 0.625rem;
+  background-color: var(--color-white);
+}
+
+.logo-container {
+  display: flex;
+  align-items: baseline;
+  gap: 0.625rem;
+}
+
+.logo-container img {
+  width: 8.875rem;
+  height: 2.375rem;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.9375rem;
+}
+
+.language-btn {
+  background: var(--color-green);
+  color: var(--color-black);
+  font-family: "GT Walsheim Medium";
+  border: none;
+  height: 3.125rem;
+  width: 3.125rem;
+  font-size: 1.0625rem;
+  cursor: pointer;
+}
+
+.menu-btn {
+  background-color: var(--color-blue);
+  border: none;
+  border-radius: 50%;
+  width: 3.4375rem;
+  height: 3.4375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tab-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 1.875rem 0;
+}
+
+.tab-buttons {
+  display: flex;
+}
+
+.tab-btn {
+  padding: 0.9375rem 1.25rem;
+  min-width: 126px;
+  border: 0.0625rem solid var(--color-green);
+  background-color: var(--color-white);
+  color: var(--color-green);
+  font-family: "GT Walsheim Regular";
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.62rem;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  background-color: var(--color-green);
+  color: var(--color-white);
+}
+
+.tab-btn svg path {
+  fill: var(--color-green);
+  transition: fill 0.3s ease;
+}
+
+.tab-btn.active svg path {
+  fill: var(--color-white);
+}
+
+.intro-section {
+  background-color: var(--color-white);
+  height: 5.8125rem;
+  margin-bottom: 1.875rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.intro-section svg {
+  position: absolute;
+  right: 0%;
+  top: 0;
+  z-index: 1;
+}
+
+.zones-container {
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.125rem;
+  margin-bottom: 2.5rem;
+}
+
+.zone-card {
+  background-color: #ededed;
+  width: 16.3125rem;
+  padding-bottom: 1.875rem;
+  height: fit-content;
+  position: relative;
+}
+
+.zone-content {
+  margin-top: 1.0625rem;
+  margin-left: 1.375rem;
+}
+
+.zone-content h3 {
+  color: var(--color-black);
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: "GT Walsheim Bold";
+  letter-spacing: -0.0225rem;
+  margin-bottom: 0.2rem;
+}
+
+.svg-text {
+  font-size: 1.0625rem;
+  font-family: "GT Walsheim Regular";
+  fill: var(--color-black);
+}
+
+.svg-title {
+  font-size: 1.5rem;
+  font-family: "GT Walsheim Bold";
+  fill: var(--color-black);
+}
+
+.zone-content p {
+  margin: 0;
+  color: var(--color-black);
+  font-family: "GT Walsheim Regular";
+  font-size: 1.0625rem;
+  line-height: 109%;
+  letter-spacing: -0.01594rem;
+  width: 11.25rem;
+}
+
+.map-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.map-btn {
+  padding: 0.5625rem 1.5rem;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  z-index: 999;
+}
+
+.zone-btn {
+  padding: 0.5625rem 1.5rem;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 13px;
+  position: absolute;
+  left: 28%;
+  bottom: -15%;
+}
+
+.zone-1-btn {
+  background-color: var(--color-yellow);
+  color: var(--color-black);
+}
+
+.zone-2-btn {
+  background-color: var(--color-purple);
+  color: var(--color-black);
+}
+
+.zone-3-btn {
+  background-color: var(--color-orange);
+  color: var(--color-white);
+}
+
+.zone-icon {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: -10%;
+  top: 20%;
+}
+
+.zone-1-icon {
+  background-color: var(--color-yellow);
+}
+
+.zone-2-icon {
+  background-color: var(--color-purple);
+}
+
+.zone-3-icon {
+  background-color: var(--color-orange);
+}
+
+.statue-section {
+  background-color: var(--color-white);
+  position: relative;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+  height: 6.125rem;
+}
+
+.statue-section svg {
+  position: absolute;
+  left: 0%;
+  top: 0;
+  z-index: 1;
+}
+
+#map {
+  width: 100%;
+  height: 90vh;
+  position: relative;
+}
+
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-blue);
+  z-index: 1001;
+  display: none;
+  flex-direction: column;
+}
+
+.nav-overlay.active {
+  display: flex;
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3.25rem;
+  padding: 0.625rem 0.625rem 0.9375rem 1.875rem;
+}
+
+.nav-title {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 1.375rem;
+  color: var(--color-black);
+  font-size: 2rem;
+  font-family: "GT Walsheim Medium";
+}
+
+.nav-content {
+  flex: 1;
+  background-color: var(--color-white);
+  padding-top: 3.9375rem;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4.6875rem;
+  margin: 0 auto;
+}
+
+.nav-item {
+  font-family: "GT Walsheim Regular";
+  text-decoration: none;
+  color: var(--color-black);
+  font-size: 1.5625rem;
+  text-align: center;
+}
+
+.info-btn {
+  background-color: transparent;
+  border: none;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.info-btn svg {
+  margin-left: -0.35rem;
+}
+
+.info-overlay {
+  display: none;
+}
+
+.info-btn-container {
+  position: relative;
+}
+
+.info-overlay.active {
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 150%;
+  right: 50%;
+  border-radius: 1.25rem 0rem 1.25rem 1.25rem;
+  z-index: 1000;
+}
+
+.info-overlay-text {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  padding: 0px 13px;
+}
+
+.info-overlay-text p {
+  width: 212px;
+}
+
+.info-overlay-header {
+  background-color: var(--color-green);
+  border-top-left-radius: 1.25rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--color-white);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-overlay-header p {
+  font-family: "GT Walsheim Medium";
+  font-size: 20px;
+}
