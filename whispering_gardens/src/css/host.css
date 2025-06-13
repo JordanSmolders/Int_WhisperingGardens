@@ -1,0 +1,149 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3.25rem;
+  padding: 0.625rem;
+  background-color: var(--color-white);
+}
+
+.logo-container {
+  display: flex;
+  align-items: baseline;
+  gap: 0.625rem;
+}
+
+.logo-container img {
+  width: 8.875rem;
+  height: 2.375rem;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.9375rem;
+}
+
+.language-btn {
+  background: var(--color-green);
+  color: var(--color-black);
+  font-family: "GT Walsheim Medium";
+  border: none;
+  height: 3.125rem;
+  width: 3.125rem;
+  font-size: 1.0625rem;
+  cursor: pointer;
+}
+
+.menu-btn {
+  background-color: var(--color-blue);
+  border: none;
+  border-radius: 50%;
+  width: 3.4375rem;
+  height: 3.4375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--color-blue);
+  z-index: 1001;
+  display: none;
+  flex-direction: column;
+}
+
+.nav-overlay.active {
+  display: flex;
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3.25rem;
+  padding: 0.625rem 0.625rem 0.9375rem 1.875rem;
+}
+
+.nav-title {
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 1.375rem;
+  color: var(--color-black);
+  font-size: 2rem;
+  font-family: "GT Walsheim Medium";
+}
+
+.nav-content {
+  flex: 1;
+  background-color: var(--color-white);
+  padding-top: 3.9375rem;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4.6875rem;
+  margin: 0 auto;
+}
+
+.nav-item {
+  font-family: "GT Walsheim Regular";
+  text-decoration: none;
+  color: var(--color-black);
+  font-size: 1.5625rem;
+  text-align: center;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-yellow);
+  padding: 30px 30px 0 30px;
+}
+
+.main-container h1 {
+  max-width: 320px;
+  margin-bottom: 21px;
+}
+
+.main-container p {
+  font-family: "GT Walsheim Regular";
+  font-size: 1.0625rem;
+  line-height: 109%;
+  max-width: 320px;
+}
+
+.main-container a {
+  text-decoration: none;
+  margin-top: 56px;
+  margin-bottom: 84px;
+  display: flex;
+  width: 12.3125rem;
+  height: 3.875rem;
+  padding: 0.625rem;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  font-size: 20px;
+  font-family: "GT Walsheim Medium";
+  background-color: var(--color-green);
+  color: var(--color-white);
+  cursor: pointer;
+}
+
+.image-container {
+  background-image: url(../assets/host_image.png);
+  position: absolute;
+  bottom: -10%;
+  height: 115px;
+  width: 100%;
+}
