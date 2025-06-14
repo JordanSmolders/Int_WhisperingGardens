@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <link rel="stylesheet" href="src/css/events.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="home.html" class="logo-container">
+        <img src="src/assets/Abby_Logo Locatie_Zwart_RGB.png" alt="" />
+      </a>
+      <div class="header-controls">
+        <button class="language-btn">EN</button>
+        <button class="menu-btn">
+          <img src="src/assets/list.png" alt="" />
+        </button>
+      </div>
+    </header>
+
+    <div class="nav-overlay" id="navOverlay">
+      <div class="nav-header">
+        <div class="nav-title">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="35"
+            height="24"
+            viewBox="0 0 35 24"
+            fill="none"
+          >
+            <path
+              d="M16.322 8.16097L0 0V7.57805L11.6585 12.2415L0 16.3219V23.9L16.322 16.3219V8.16097Z"
+              fill="black"
+            />
+            <path
+              d="M18.6536 16.3223L34.9756 23.9004V16.3223L23.317 12.2419L34.9756 7.57844V0.000392914L18.6536 8.16137L18.6536 16.3223Z"
+              fill="black"
+            />
+          </svg>
+          <span>Navigation</span>
+        </div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="54"
+          height="54"
+          viewBox="0 0 54 54"
+          fill="none"
+          id="closeNav"
+        >
+          <circle cx="27" cy="27" r="27" fill="white" />
+          <path
+            d="M30.3226 16.0002L37.6885 16.0002L29.9134 27.2637L23.3659 27.2637L16 16.0002H22.9567L26.6396 25.1987L30.3226 16.0002Z"
+            fill="black"
+          />
+          <path
+            d="M30.3226 37.5271H37.6885L29.9134 26.2637L23.3659 26.2637L16 37.5271H22.9567L26.6396 28.3286L30.3226 37.5271Z"
+            fill="black"
+          />
+        </svg>
+      </div>
+      <div class="nav-content">
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-item">Instructions</a>
+          <a href="home.html" class="nav-item">The map</a>
+          <a href="home.html" class="nav-item">The zones</a>
+          <a href="events.html" class="nav-item">Events</a>
+          <a href="host.html" class="nav-item">Join the community</a>
+        </nav>
+      </div>
+    </div>
+    <main class="main-content">
+      <div class="container">
+        <div class="page-header">
+          <h1>Calendar</h1>
+          <p>Explore upcoming events, workshops, talks, and more.</p>
+        </div>
+
+        <div class="filter-section">
+          <div class="filter-dropdown">
+            <select id="tagFilter">
+              <option value="">Filter on tag</option>
+              <option value="EXPO">EXPO</option>
+              <option value="EVENT">EVENT</option>
+              <option value="LIVING">LIVING</option>
+            </select>
+            <svg
+              class="dropdown-arrow"
+              width="12"
+              height="8"
+              viewBox="0 0 12 8"
+              fill="none"
+            >
+              <path
+                d="M1 1L6 6L11 1"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <button class="show-all-btn" id="showAllBtn">Show all</button>
+        </div>
+
+        <div class="events-grid" id="eventsGrid">
+          <div class="event-card" data-tags="EXPO">
+            <div class="event-image">
+              <img src="src/assets/horse.webp" alt="" />
+            </div>
+            <div class="event-content">
+              <div class="event-date">29 MAR 25 <> 14 SEP 25</div>
+              <div class="event-tags">
+                <span class="tag">EXPO</span>
+              </div>
+              <h3 class="event-title">F**klore. Reinventing Tradition</h3>
+              <p class="event-subtitle">Opening exhibition</p>
+              <button class="info-btn">
+                <a href="https://www.abbykortrijk.be/ontdek/kalender/fklore"
+                  >Info & tickets</a
+                >
+              </button>
+            </div>
+          </div>
+
+          <div class="event-card" data-tags="EXPO,LIVING">
+            <div class="event-image">
+              <img src="src/assets/living.webp" alt="" />
+            </div>
+            <div class="event-content">
+              <div class="event-date">29 MAR 25 <> 06 SEP 26</div>
+              <div class="event-tags">
+                <span class="tag">EXPO</span>
+                <span class="tag">LIVING</span>
+              </div>
+              <h3 class="event-title">The Living by Rinus Van de Velde</h3>
+              <p class="event-subtitle">Living</p>
+              <button class="info-btn">
+                <a
+                  href="https://www.abbykortrijk.be/ontdek/kalender/de-living-van-rinus-van-de-velde"
+                >
+                  Info & tickets</a
+                >
+              </button>
+            </div>
+          </div>
+
+          <div class="event-card" data-tags="EVENT">
+            <div class="event-image">
+              <img src="src/assets/dieter.webp" alt="" />
+            </div>
+            <div class="event-content">
+              <div class="event-date">15 JUN 25 <> 15 JUN 25</div>
+              <div class="event-tags">
+                <span class="tag">EVENT</span>
+              </div>
+              <h3 class="event-title">Dieter Van Caneghem</h3>
+              <p class="event-subtitle">Galerij</p>
+              <button class="info-btn">
+                <a
+                  href="https://www.abbykortrijk.be/bezoek/kalender/dieter-van-caneghem"
+                  >Info & tickets</a
+                >
+              </button>
+            </div>
+          </div>
+
+          <div class="event-card" data-tags="EVENT">
+            <div class="event-image">
+              <img src="src/assets/garden.png" alt="" />
+            </div>
+            <div class="event-content">
+              <div class="event-date">18 JUN 25 <> 22 JUN 25</div>
+              <div class="event-tags">
+                <span class="tag">EVENT</span>
+              </div>
+              <h3 class="event-title">Leave mark in garden</h3>
+              <p class="event-subtitle">Opening for garden</p>
+              <button class="info-btn">Info & tickets</button>
+            </div>
+          </div>
+
+          <div class="event-card" data-tags="EXPO,EVENT">
+            <div class="event-image"></div>
+            <div class="event-content">
+              <div class="event-date">10 AUG 25 <> 20 AUG 25</div>
+              <div class="event-tags">
+                <span class="tag">EXPO</span>
+                <span class="tag">EVENT</span>
+              </div>
+              <h3 class="event-title">Bracelet showcase</h3>
+              <p class="event-subtitle">Expo of community created bracelets</p>
+              <button class="info-btn">Info & tickets</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="src/js/events.js"></script>
+</html>
