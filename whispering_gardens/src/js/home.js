@@ -1,53 +1,67 @@
-  const mapTab = document.querySelector("#mapTab")
-  const zonesTab = document.querySelector("#zonesTab")
-  const mapContent = document.querySelector("#mapContent")
-  const zonesContent = document.querySelector("#zonesContent")
-  const menuButton = document.querySelector(".menu-btn");
-  const closeButton = document.querySelector("#closeNav");
-  const navOverlay = document.querySelector("#navOverlay")
-  const infoButton = document.querySelector(".info-btn");
-  const infoOverlay = document.querySelector('.info-overlay');
-  const imageUrl = "src/assets/map.png";
-  const zoomLevel = 20;
-  const gardenBounds = [
+const mapTab = document.querySelector("#mapTab");
+const zonesTab = document.querySelector("#zonesTab");
+const mapContent = document.querySelector("#mapContent");
+const zonesContent = document.querySelector("#zonesContent");
+const menuButton = document.querySelector(".menu-btn");
+const closeButton = document.querySelector("#closeNav");
+const navOverlay = document.querySelector("#navOverlay");
+const infoButton = document.querySelector(".info-btn");
+const infoOverlay = document.querySelector('.info-overlay');
+const imageUrl = "src/assets/map-refine.svg";
+const tabParam = getUrlParameter("tab");
+const zoomLevel = 20;
+const gardenBounds = [
   [50.828992, 3.26934],
   [50.829571, 3.270335],
-  ];
+];
 
+const getUrlParameter = (name) => {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(name);
+}
 
-  infoButton.addEventListener("click", ()=>{
-    infoOverlay.classList.toggle('active');
-  })
+infoButton.addEventListener("click", () => {
+  infoOverlay.classList.toggle('active');
+});
 
-  const switchTab = (activeTab, inactiveTab, showContent, hideContent) => {
-    activeTab.classList.add("active")
-    inactiveTab.classList.remove("active")
+const switchTab = (activeTab, inactiveTab, showContent, hideContent) => {
+  activeTab.classList.add("active");
+  inactiveTab.classList.remove("active");
+  hideContent.style.display = "none";
+  showContent.style.display = "block";
+};
 
-    hideContent.style.display = "none"
-    showContent.style.display = "block"
+const initializeTabFromUrl =() => {
+  if (tabParam === "zones") {
+    switchTab(zonesTab, mapTab, zonesContent, mapContent);
+  } else {
+    switchTab(mapTab, zonesTab, mapContent, zonesContent);
   }
+}
 
-  mapTab.addEventListener("click", () => {
-    if (!mapTab.classList.contains("active")) {
-      switchTab(mapTab, zonesTab, mapContent, zonesContent)
-    }
-  })
+initializeTabFromUrl();
 
-  zonesTab.addEventListener("click", () => {
-    if (!zonesTab.classList.contains("active")) {
-      switchTab(zonesTab, mapTab, zonesContent, mapContent)
-    }
-  })
+mapTab.addEventListener("click", () => {
+  if (!mapTab.classList.contains("active")) {
+    switchTab(mapTab, zonesTab, mapContent, zonesContent);
+  }
+});
 
-  menuButton.addEventListener("click", () => {
-    navOverlay.classList.add("active")
-    document.body.style.overflow = "hidden" 
-  })
+zonesTab.addEventListener("click", () => {
+  if (!zonesTab.classList.contains("active")) {
+    switchTab(zonesTab, mapTab, zonesContent, mapContent);
+  }
+});
 
-  closeButton.addEventListener("click", () => {
-    navOverlay.classList.remove("active")
-    document.body.style.overflow = "auto" 
-  })
+menuButton.addEventListener("click", () => {
+  navOverlay.classList.add("active");
+  document.body.style.overflow = "hidden";
+});
+
+closeButton.addEventListener("click", () => {
+  navOverlay.classList.remove("active");
+  document.body.style.overflow = "auto";
+});
 
 const getBoundsCenter = (bounds) => {
   return [
@@ -74,14 +88,12 @@ const initializeMap = (containerId) => {
 };
 
 const createUserMarker = (map) => {
-  const marker = L.circleMarker([0, 0], {
-    radius: 8,
-    color: "white",
-    fillColor: "red",
-    fillOpacity: 1,
-    weight: 2,
-  }).addTo(map);
-  marker.bringToFront();
+  const userIcon = L.icon({
+    iconUrl: 'src/assets/bouncing_ball.gif',
+    iconSize: [60, 60],
+    iconAnchor: [30, 30],
+  });
+  const marker = L.marker([0, 0], { icon: userIcon }).addTo(map);
   return marker;
 };
 
@@ -107,10 +119,37 @@ const trackUserLocation = (marker) => {
   );
 };
 
+const createLabelMarker = (map, latlng, labelText) => {
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="40" viewBox="0 0 100 40">
+      <rect width="100" height="40" fill="#00A468" />
+      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+        fill="white" font-size="20" font-family="GT Walsheim Medium, Arial">${labelText}</text>
+    </svg>
+  `;
+
+  const labelIcon = L.divIcon({
+    className: 'label',
+    html: svg,
+    iconSize: [209, 81],
+    iconAnchor: [104, 40],
+  });
+
+  const labelMarker = L.marker(latlng, { icon: labelIcon }).addTo(map);
+  labelMarker.on("click", () => {
+  window.location.href = `${labelText.toLowerCase()}.html`;
+});
+
+};
+
 const setupGardenMap = () => {
   const map = initializeMap("map");
+
   const userMarker = createUserMarker(map);
   trackUserLocation(userMarker);
+
+  createLabelMarker(map, [50.82925, 3.2697], "PULSE");
+  createLabelMarker(map, [50.82932, 3.2700], "THREAD");
 };
 
 setupGardenMap();

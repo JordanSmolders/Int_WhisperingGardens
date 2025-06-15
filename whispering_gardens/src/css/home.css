@@ -168,13 +168,16 @@
 .map-btn {
   padding: 0.5625rem 1.5rem;
   border: none;
-  font-weight: 600;
+  text-decoration: none;
+  font-family: "GT Walsheim Medium";
+  color: var(--color-black) !important;
   cursor: pointer;
   font-size: 0.8125rem;
   z-index: 999;
 }
 
 .zone-btn {
+  text-decoration: none;
   padding: 0.5625rem 1.5rem;
   border: none;
   font-weight: 600;
@@ -212,6 +215,15 @@
   top: 20%;
 }
 
+.zone-icon img {
+  width: 55px;
+  height: 48px;
+}
+
+.zone-3-icon img {
+  width: 44px;
+  height: 54px;
+}
 .zone-1-icon {
   background-color: var(--color-yellow);
 }
@@ -356,4 +368,13 @@
 .info-overlay-header p {
   font-family: "GT Walsheim Medium";
   font-size: 20px;
+}
+
+@media (min-width: 425px) {
+  .zone-card {
+    margin-left: -5rem;
+  }
+  .zone-card:nth-child(even) {
+    margin: 0;
+  }
 }

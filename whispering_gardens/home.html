@@ -13,13 +13,13 @@
   </head>
   <body>
     <header class="header">
-      <div class="logo-container">
+      <a href="home.html" class="logo-container">
         <img src="src/assets/Abby_Logo Locatie_Zwart_RGB.png" alt="" />
-      </div>
+      </a>
       <div class="header-controls">
         <button class="language-btn">EN</button>
         <button class="menu-btn">
-          <img src="src/assets/list.png" alt="" />
+          <img src="src/assets/hamburger.svg" alt="" />
         </button>
       </div>
     </header>
@@ -66,11 +66,11 @@
       </div>
       <div class="nav-content">
         <nav class="nav-menu">
-          <a href="#" class="nav-item">Instructions</a>
-          <a href="#" class="nav-item">The map</a>
-          <a href="#" class="nav-item">The zones</a>
-          <a href="#" class="nav-item">Events</a>
-          <a href="#" class="nav-item">Join the community</a>
+          <a href="index.html" class="nav-item">Instructions</a>
+          <a href="home.html?tab=map" class="nav-item">The map</a>
+          <a href="home.html?tab=zones" class="nav-item">The zones</a>
+          <a href="events.html" class="nav-item">Events</a>
+          <a href="host.html" class="nav-item">Join the community</a>
         </nav>
       </div>
     </div>
@@ -109,27 +109,12 @@
         <button class="tab-btn" id="zonesTab" data-tab="zones">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="17"
-            viewBox="0 0 16 17"
+            width="15"
+            height="20"
+            viewBox="0 0 15 20"
             fill="none"
           >
-            <g clip-path="url(#clip0_482_703)">
-              <path
-                d="M14.778 0.585C14.8462 0.630637 14.9022 0.692369 14.9409 0.764746C14.9796 0.837123 14.9999 0.917918 15 1V8.5C15 8.59985 14.9701 8.69741 14.9141 8.78011C14.8581 8.86281 14.7787 8.92685 14.686 8.964L14.683 8.965L14.677 8.968L14.654 8.977C14.5226 9.02934 14.3902 9.07934 14.257 9.127C13.993 9.222 13.626 9.35 13.21 9.477C12.394 9.729 11.331 10 10.5 10C9.653 10 8.952 9.72 8.342 9.475L8.314 9.465C7.68 9.21 7.14 9 6.5 9C5.8 9 4.862 9.23 4.063 9.477C3.70532 9.58869 3.35084 9.7104 3 9.842V16C3 16.1326 2.94732 16.2598 2.85355 16.3536C2.75979 16.4473 2.63261 16.5 2.5 16.5C2.36739 16.5 2.24021 16.4473 2.14645 16.3536C2.05268 16.2598 2 16.1326 2 16V1C2 0.867392 2.05268 0.740215 2.14645 0.646447C2.24021 0.552678 2.36739 0.5 2.5 0.5C2.63261 0.5 2.75979 0.552678 2.85355 0.646447C2.94732 0.740215 3 0.867392 3 1V1.282C3.226 1.203 3.496 1.112 3.79 1.022C4.606 0.772 5.67 0.5 6.5 0.5C7.34 0.5 8.024 0.777 8.621 1.019L8.664 1.037C9.286 1.288 9.828 1.5 10.5 1.5C11.2 1.5 12.138 1.27 12.937 1.023C13.3922 0.880471 13.8422 0.721702 14.286 0.547L14.305 0.54L14.309 0.538H14.31"
-                fill="#00A468"
-              />
-            </g>
-            <defs>
-              <clipPath id="clip0_482_703">
-                <rect
-                  width="16"
-                  height="16"
-                  fill="white"
-                  transform="translate(0 0.5)"
-                />
-              </clipPath>
-            </defs>
+            <path d="M15 7L0.5 0V20H2V13.5L15 7Z" fill="white" />
           </svg>
           Zones
         </button>
@@ -240,9 +225,9 @@
     <div class="content-section" id="mapContent">
       <div id="map">
         <div class="map-buttons">
-          <button class="map-btn zone-1-btn">Zone 1 ></button>
-          <button class="map-btn zone-2-btn">Zone 2 ></button>
-          <button class="map-btn zone-3-btn">Zone 3 ></button>
+          <a href="thread.html" class="map-btn zone-1-btn">Thread ></a>
+          <a href="pulse.html" class="map-btn zone-2-btn">Pulse ></a>
+          <a href="signal.html" class="map-btn zone-3-btn">Signal ></a>
         </div>
       </div>
     </div>
@@ -271,21 +256,21 @@
           <div class="zone-content">
             <h3>1. Thread</h3>
             <p>Heal through medicinal plants. Rooted in nature.</p>
-            <button class="zone-btn zone-1-btn">Zone 1 ></button>
+            <a href="thread.html" class="zone-btn zone-1-btn">Zone 1 ></a>
           </div>
           <div class="zone-icon zone-1-icon">
-            <img src="src/assets/zone1.png" alt="" />
+            <img src="src/assets/thread.png" alt="" />
           </div>
         </div>
 
         <div class="zone-card">
           <div class="zone-icon zone-2-icon">
-            <img src="src/assets/zone2.png" alt="" />
+            <img src="src/assets/pulse.png" alt="" />
           </div>
           <div class="zone-content">
             <h3>2. Pulse</h3>
             <p>Calm through nature’s gentle simulation.</p>
-            <button class="zone-btn zone-2-btn">Zone 2 ></button>
+            <a href="pulse.html" class="zone-btn zone-2-btn">Zone 2 ></a>
           </div>
         </div>
 
@@ -293,10 +278,10 @@
           <div class="zone-content">
             <h3>3. Signal</h3>
             <p>Leave a message, receive one. Heal through connection.</p>
-            <button class="zone-btn zone-3-btn">Zone 3 ></button>
+            <a href="signal.html" class="zone-btn zone-3-btn">Zone 3 ></a>
           </div>
           <div class="zone-icon zone-3-icon">
-            <img src="src/assets/zone3.png" alt="" />
+            <img src="src/assets/signal.png" alt="" />
           </div>
         </div>
       </div>
