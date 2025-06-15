@@ -8,7 +8,6 @@ const navOverlay = document.querySelector("#navOverlay");
 const infoButton = document.querySelector(".info-btn");
 const infoOverlay = document.querySelector('.info-overlay');
 const imageUrl = "src/assets/map-refine.svg";
-const tabParam = getUrlParameter("tab");
 const zoomLevel = 20;
 const gardenBounds = [
   [50.828992, 3.26934],
@@ -32,6 +31,7 @@ const switchTab = (activeTab, inactiveTab, showContent, hideContent) => {
 };
 
 const initializeTabFromUrl =() => {
+  const tabParam = getUrlParameter("tab");
   if (tabParam === "zones") {
     switchTab(zonesTab, mapTab, zonesContent, mapContent);
   } else {
