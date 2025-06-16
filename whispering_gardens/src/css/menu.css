@@ -1,0 +1,265 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #f8f9fa;
+  overflow-x: hidden;
+}
+
+/* Menu Block */
+.menu {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Block */
+.menu__header {
+  background: linear-gradient(135deg, #b794f6 0%, #9f7aea 100%);
+  color: white;
+  padding: 20px;
+  position: relative;
+}
+
+.menu__close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu__close-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu__close-icon {
+  font-size: 24px;
+  font-weight: 300;
+  color: #333;
+}
+
+.menu__header-content {
+  margin-top: 20px;
+}
+
+.menu__zone-label {
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.menu__title {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+
+.menu__description {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: 0.95;
+}
+
+/* Main Content */
+.menu__main {
+  flex: 1;
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+.menu__activities {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Activity Block */
+.activity {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.activity:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.activity__image {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  background-color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  font-weight: 500;
+  position: relative;
+}
+
+.activity__image--breathing {
+  background: linear-gradient(135deg, #fef3c7 0%, #f59e0b 100%);
+}
+
+.activity__image--breathing::after {
+  content: "Deep Breathing Image";
+  color: #92400e;
+}
+
+.activity__image--movement {
+  background: linear-gradient(135deg, #dbeafe 0%, #3b82f6 100%);
+}
+
+.activity__image--movement::after {
+  content: "Slow Movement Image";
+  color: #1e40af;
+}
+
+.activity__image--calm {
+  background: linear-gradient(135deg, #fce7f3 0%, #ec4899 100%);
+}
+
+.activity__image--calm::after {
+  content: "Step Calm Image";
+  color: #be185d;
+}
+
+.activity__content {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.activity__border {
+  width: 6px;
+  height: 80px;
+  background: linear-gradient(135deg, #b794f6 0%, #9f7aea 100%);
+  flex-shrink: 0;
+}
+
+.activity__text {
+  flex: 1;
+  padding: 20px;
+}
+
+.activity__title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #b794f6;
+  margin-bottom: 8px;
+}
+
+.activity__description {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #4a5568;
+}
+
+.activity__arrow {
+  padding: 20px;
+  color: #b794f6;
+}
+
+.activity__arrow svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 375px) {
+  .menu__header {
+    padding: 16px;
+  }
+
+  .menu__title {
+    font-size: 42px;
+  }
+
+  .menu__description {
+    font-size: 15px;
+  }
+
+  .menu__main {
+    padding: 16px;
+  }
+
+  .activity__image {
+    height: 160px;
+  }
+
+  .activity__text {
+    padding: 16px;
+  }
+
+  .activity__title {
+    font-size: 18px;
+  }
+
+  .activity__description {
+    font-size: 13px;
+  }
+
+  .activity__arrow {
+    padding: 16px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .menu__header {
+    padding: 40px;
+  }
+
+  .menu__title {
+    font-size: 56px;
+  }
+
+  .menu__description {
+    font-size: 18px;
+  }
+
+  .menu__main {
+    padding: 40px;
+  }
+
+  .menu__activities {
+    max-width: 600px;
+  }
+
+  .activity__image {
+    height: 240px;
+  }
+
+  .activity__title {
+    font-size: 22px;
+  }
+
+  .activity__description {
+    font-size: 16px;
+  }
+}

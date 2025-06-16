@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse - Zone 2</title>
+    <link rel="stylesheet" href="src/css/zone.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+
+</head>
+<body>
+    <div class="zone">
+        <!-- Hero Image Section -->
+        <div class="zone__hero">
+            <button class="zone__close-btn" onclick="closeZone()">
+                <span class="zone__close-icon">×</span>
+            </button>
+            <div class="zone__hero-image"></div>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="zone__content">
+            <div class="zone__brand">
+                <div class="zone__logo">
+                    <svg class="zone__logo-icon" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <h1 class="zone__title">PULSE</h1>
+            </div>
+
+            <p class="zone__description">
+                In this zone, you step into the stillness. 
+                Guided by scent, movement, and 
+                sound, you're invited to slow down, 
+                breathe deeply, and reconnect with 
+                your senses through the simulated 
+                healing effects of medicinal plants.
+            </p>
+
+            <button class="zone__start-btn" onclick="startPulse()">
+                Start a pulse
+            </button>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="zone__footer">
+            <div class="zone__footer-content">
+                <div class="zone__footer-text">
+                    <h3>See what's coming up at Abby</h3>
+                </div>
+                <button class="zone__calendar-btn" onclick="viewCalendar()">
+                    View calendar →
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/js/zone.js"></script>
+</body>
+</html>

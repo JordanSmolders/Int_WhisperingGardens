@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse Menu - Choose Activity</title>
+    <link rel="stylesheet" href="src/css/menu.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+
+</head>
+<body>
+    <div class="menu">
+        <!-- Header Section -->
+        <header class="menu__header">
+            <button class="menu__close-btn" onclick="closeMenu()">
+                <span class="menu__close-icon">×</span>
+            </button>
+            <div class="menu__header-content">
+                <p class="menu__zone-label">Zone 2</p>
+                <h1 class="menu__title">PULSE</h1>
+                <p class="menu__description">
+                    Take a deep breath and settle in.<br>
+                    Choose a gentle activity below to help<br>
+                    you unwind and reconnect with yourself.
+                </p>
+            </div>
+        </header>
+
+        <!-- Activities Section -->
+        <main class="menu__main">
+            <div class="menu__activities">
+                <!-- Deep Breathing Activity -->
+                <div class="activity" onclick="selectActivity('deep-breathing')">
+                    <div class="activity__image activity__image--breathing"></div>
+                    <div class="activity__content">
+                        <div class="activity__border"></div>
+                        <div class="activity__text">
+                            <h3 class="activity__title">Deep Breathing</h3>
+                            <p class="activity__description">
+                                Breathe in, hold, breathe out. Find your calm.
+                            </p>
+                        </div>
+                        <div class="activity__arrow">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slow Movement Activity -->
+                <div class="activity" onclick="selectActivity('slow-movement')">
+                    <div class="activity__image activity__image--movement"></div>
+                    <div class="activity__content">
+                        <div class="activity__border"></div>
+                        <div class="activity__text">
+                            <h3 class="activity__title">Slow Movement</h3>
+                            <p class="activity__description">
+                                Move with intention. Stretch gently. Let tension melt away.
+                            </p>
+                        </div>
+                        <div class="activity__arrow">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step Calm Activity -->
+                <div class="activity" onclick="selectActivity('step-calm')">
+                    <div class="activity__image activity__image--calm"></div>
+                    <div class="activity__content">
+                        <div class="activity__border"></div>
+                        <div class="activity__text">
+                            <h3 class="activity__title">Step Calm</h3>
+                            <p class="activity__description">
+                                Use your senses to feel connected.
+                            </p>
+                        </div>
+                        <div class="activity__arrow">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="src/js/menu.js"></script>
+</body>
+</html>

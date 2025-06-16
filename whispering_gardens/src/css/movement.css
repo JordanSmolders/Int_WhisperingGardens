@@ -1,0 +1,263 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #f8f9fa;
+  overflow-x: hidden;
+}
+
+/* Header Block */
+.header {
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  color: white;
+  padding: 20px;
+  min-height: 200px;
+  position: relative;
+}
+
+.header__back-button {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 20px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.header__back-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.header__back-button::before {
+  content: "<";
+  margin-right: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.header__title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.header__description {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: 0.95;
+  font-weight: 400;
+}
+
+/* Main Content Block */
+.main {
+  background-color: #f8f9fa;
+  min-height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+/* Movement Block */
+.movement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  max-width: 400px;
+}
+
+.movement__container {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.movement__figure {
+  position: relative;
+  transform-origin: center bottom;
+}
+
+.movement__body {
+  position: relative;
+}
+
+.movement__head {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  position: relative;
+  z-index: 5;
+}
+
+.movement__torso {
+  width: 60px;
+  height: 80px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  border-radius: 30px 30px 20px 20px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3;
+}
+
+.movement__arm {
+  width: 8px;
+  height: 50px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  border-radius: 4px;
+  position: absolute;
+  top: 50px;
+  transform-origin: top center;
+  z-index: 2;
+}
+
+.movement__arm--left {
+  left: 10px;
+  transform: rotate(-20deg);
+}
+
+.movement__arm--right {
+  right: 10px;
+  transform: rotate(20deg);
+}
+
+.movement__leg {
+  width: 10px;
+  height: 60px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  border-radius: 5px;
+  position: absolute;
+  top: 120px;
+  transform-origin: top center;
+  z-index: 1;
+}
+
+.movement__leg--left {
+  left: 20px;
+}
+
+.movement__leg--right {
+  right: 20px;
+}
+
+.movement__text {
+  font-size: 24px;
+  font-weight: 600;
+  color: #3b82f6;
+  text-align: center;
+  opacity: 0.8;
+  margin-bottom: 30px;
+  transition: opacity 0.3s ease;
+}
+
+.movement__controls {
+  display: flex;
+  gap: 15px;
+}
+
+.movement__btn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.movement__btn:hover {
+  background: #1e40af;
+  transform: translateY(-2px);
+}
+
+.movement__btn--play {
+  background: #10b981;
+}
+
+.movement__btn--play:hover {
+  background: #059669;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 375px) {
+  .header {
+    padding: 16px;
+    min-height: 180px;
+  }
+
+  .header__title {
+    font-size: 42px;
+  }
+
+  .header__description {
+    font-size: 15px;
+  }
+
+  .movement__container {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 30px;
+  }
+
+  .movement__text {
+    font-size: 22px;
+  }
+
+  .main {
+    padding: 30px 16px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    padding: 40px;
+    min-height: 240px;
+  }
+
+  .header__title {
+    font-size: 56px;
+  }
+
+  .header__description {
+    font-size: 18px;
+  }
+
+  .movement__container {
+    width: 350px;
+    height: 350px;
+    margin-bottom: 50px;
+  }
+
+  .movement__text {
+    font-size: 28px;
+  }
+
+  .main {
+    padding: 60px 40px;
+  }
+}
