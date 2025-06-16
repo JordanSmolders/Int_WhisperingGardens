@@ -4,20 +4,24 @@ const prevBtn = document.querySelector('#prevBtn');
 const titleText = document.querySelector('#text-title');
 const infoText = document.querySelector('#text-info');
 const skip = document.querySelector('#skip');
+const svgPath = document.querySelector('.green-background path');
 let activeIndex = 4;
 
 const text = [
-  {title: "Ready when you are", info: "Abby is yours to explore. Tap the map, follow a feeling, or just take a breath.There’s no rush. Everything you need is already here."},
-  {title: "Your voice, without sound", info: "Leave a signal — a photo, a thought, a movement. It becomes part of a glowing sculpture that grows with every response. The more we interact, the brighter it glows."},
-  {title: "A journey you can wear", info: "In each zone, you’ll collect a token. The more you explore, the more materials, colors, textures, charms you unlock. You’ll use them to craft your own bracelet. A reminder of your journey."},
-  {title: "Every part counts", info: "Move through the garden at your own pace. Zone 1: Heal your body with real plants Zone 2: Calm your mind with guided breathing Zone 3: Leave a mark. Find connection"},
-  {title: "Welkome to ABBY!", info: "You’ve just stepped into Abby — va garden designed to help you slow down, heal, and connect. There’s no right way to start. Just follow what feels right."},
+  {title: "Tips Before You Start", info: "There’s no right way to start, just follow what you feel right. Leave your signal on the app and see yours and other creation being displayed at atelier", color: "#BB7CD2"},
+  {title: "Your bracelet", info: "It’s your key! Use it to navigate, interact with each zones and join community. The more you explore, the more materials, colors, textures, charms you unlock.",color: "#5F90FF"},
+  {title: "Create & Collect", info: "Collect tokens at each zones and exchange them at the atelier to customize your bracelet.", color: "#FF5F00"},
+  {title: "The healing journey", info: "You’ll move through 3 interactive zones: Thread – Discover medicinal plants through light, sound, and AR. Pulse – Try out healing methods inspired by nature Signal – Leave your own mark", color: "#FFBF50"},
+  {title: "Welkome to ABBY!", info: "This is not just a museum – it’s a journey. You’ve just stepped into a story. Your bracelet holds a key (the little bean). Tap it anytime to come back to this app.", color: "#00A468"},
 ]
 
 function updateText() {
   const current = text[activeIndex];
   titleText.textContent = current.title;
   infoText.textContent = current.info;
+   if (svgPath) {
+    svgPath.setAttribute('fill', current.color);
+  }
 }
 
 function circleSize(relativeIndex) {

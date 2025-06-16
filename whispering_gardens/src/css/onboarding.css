@@ -42,7 +42,6 @@ button {
   background-color: transparent;
   border: none;
   font-size: 1.5rem;
-  padding: 0;
   cursor: pointer;
   border-radius: 0.5rem;
 }
@@ -50,6 +49,11 @@ button {
 button:first-child {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
+  padding-left: 2rem;
+}
+
+button:last-child {
+  padding-left: 2rem;
 }
 
 .orange {
@@ -90,21 +94,33 @@ button:first-child {
   position: absolute;
   top: 3.625rem;
   left: 2.0625rem;
+  z-index: 10;
 }
 
 .content {
-  margin-top: -12rem;
+  margin-top: -10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 h1 {
-  width: 17.5rem;
+  width: 15rem;
   font-size: 2.375rem;
+  height: 83px;
   color: var(--color-white);
 }
 
 .text-container {
   padding-top: 7rem;
-  padding-left: 1.5rem;
 }
 
 .text-container-info {
@@ -114,8 +130,11 @@ h1 {
 }
 
 .green-background {
+  width: 100vw; /* Full viewport width */
+  height: 468px; /* Fixed height */
   position: absolute;
   z-index: -1;
+  object-fit: cover;
 }
 
 .circle-icon {
@@ -147,5 +166,5 @@ h1 {
 .continue {
   text-decoration: none;
   background-color: var(--color-white);
-  padding: 0.925rem 2.15rem;
+  padding: 0.925rem 1.5rem;
 }
