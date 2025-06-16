@@ -15,7 +15,7 @@
       <div class="header-controls">
         <button class="language-btn">EN</button>
         <button class="menu-btn">
-          <img src="src/assets/list.png" alt="" />
+          <img src="src/assets/hamburger.svg" alt="" />
         </button>
       </div>
     </header>
@@ -63,45 +63,65 @@
       <div class="nav-content">
         <nav class="nav-menu">
           <a href="index.html" class="nav-item">Instructions</a>
-          <a href="home.html" class="nav-item">The map</a>
-          <a href="home.html" class="nav-item">The zones</a>
+          <a href="home.html?tab=map" class="nav-item">The map</a>
+          <a href="home.html?tab=zones" class="nav-item">The zones</a>
           <a href="events.html" class="nav-item">Events</a>
           <a href="host.html" class="nav-item">Join the community</a>
         </nav>
       </div>
     </div>
     <main class="main-content">
+      <a href="host.html" class="fixed-button">
+        <h2>Want to bring your ideas to life?</h2>
+        <button class="learn-more-btn">
+          Learn more
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="12"
+            viewBox="0 0 14 12"
+            fill="none"
+          >
+            <path
+              d="M-2.6089e-07 4.07547L9.53989e-08 -2.70245e-07L14 4.30189L14 7.92453L-9.53674e-07 12L-6.17179e-07 8.15094L11.4333 6.11321L-2.6089e-07 4.07547Z"
+              fill="black"
+            />
+          </svg>
+        </button>
+      </a>
       <div class="container">
-        <div class="page-header">
-          <h1>Calendar</h1>
-          <p>Explore upcoming events, workshops, talks, and more.</p>
-        </div>
-
-        <div class="filter-section">
-          <div class="filter-dropdown">
-            <select id="tagFilter">
-              <option value="">Filter on tag</option>
-              <option value="EXPO">EXPO</option>
-              <option value="EVENT">EVENT</option>
-              <option value="LIVING">LIVING</option>
-            </select>
-            <svg
-              class="dropdown-arrow"
-              width="12"
-              height="8"
-              viewBox="0 0 12 8"
-              fill="none"
-            >
-              <path
-                d="M1 1L6 6L11 1"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+        <div class="container-header">
+          <div class="page-header">
+            <h1>Calendar</h1>
+            <p>Explore upcoming events, workshops, talks, and more.</p>
           </div>
-          <button class="show-all-btn" id="showAllBtn">Show all</button>
+
+          <div class="filter-section">
+            <div class="filter-dropdown">
+              <select id="tagFilter">
+                <option value="">Filter on tag</option>
+                <option value="EXPO">EXPO</option>
+                <option value="EVENT">EVENT</option>
+                <option value="LIVING">LIVING</option>
+              </select>
+              <svg
+                class="dropdown-arrow"
+                width="12"
+                height="8"
+                viewBox="0 0 12 8"
+                fill="none"
+              >
+                <path
+                  d="M1 1L6 6L11 1"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <button class="show-all-btn" id="showAllBtn">Show all</button>
+          </div>
         </div>
 
         <div class="events-grid" id="eventsGrid">
