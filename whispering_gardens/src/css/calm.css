@@ -1,0 +1,277 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #f8f9fa;
+  overflow-x: hidden;
+}
+
+/* Header Block */
+.header {
+  background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+  color: white;
+  padding: 20px;
+  min-height: 200px;
+  position: relative;
+}
+
+.header__back-button {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 20px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.header__back-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.header__back-button::before {
+  content: "<";
+  margin-right: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.header__title {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.header__description {
+  font-size: 16px;
+  line-height: 1.4;
+  opacity: 0.95;
+  font-weight: 400;
+}
+
+/* Main Content Block */
+.main {
+  background-color: #f8f9fa;
+  min-height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+/* Calm Block */
+.calm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  max-width: 400px;
+}
+
+.calm__senses {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.calm__sense {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0.4;
+  transform: scale(0.95);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.calm__sense--active {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 4px 16px rgba(236, 72, 153, 0.2);
+  border: 2px solid #ec4899;
+}
+
+.calm__sense-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.calm__sense-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ec4899;
+  margin-bottom: 8px;
+}
+
+.calm__sense-text {
+  font-size: 14px;
+  color: #4a5568;
+  line-height: 1.4;
+}
+
+.calm__progress {
+  width: 100%;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.calm__progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.calm__progress-fill {
+  height: 100%;
+  background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+  width: 20%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.calm__progress-text {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.calm__controls {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.calm__btn {
+  background: #ec4899;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calm__btn:hover {
+  background: #be185d;
+  transform: translateY(-2px);
+}
+
+.calm__btn--reset {
+  background: #6b7280;
+}
+
+.calm__btn--reset:hover {
+  background: #4b5563;
+}
+
+.calm__btn:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 375px) {
+  .header {
+    padding: 16px;
+    min-height: 180px;
+  }
+
+  .header__title {
+    font-size: 42px;
+  }
+
+  .header__description {
+    font-size: 15px;
+  }
+
+  .calm__sense {
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .calm__sense-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+  }
+
+  .calm__sense-title {
+    font-size: 18px;
+  }
+
+  .calm__sense-text {
+    font-size: 13px;
+  }
+
+  .main {
+    padding: 30px 16px;
+  }
+
+  .calm__controls {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .calm__btn {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    padding: 40px;
+    min-height: 240px;
+  }
+
+  .header__title {
+    font-size: 56px;
+  }
+
+  .header__description {
+    font-size: 18px;
+  }
+
+  .calm__sense {
+    padding: 24px;
+  }
+
+  .calm__sense-icon {
+    font-size: 56px;
+  }
+
+  .calm__sense-title {
+    font-size: 22px;
+  }
+
+  .calm__sense-text {
+    font-size: 16px;
+  }
+
+  .main {
+    padding: 60px 40px;
+  }
+}

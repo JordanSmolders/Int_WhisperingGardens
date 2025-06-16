@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slow Movement - Pulse</title>
+    <link rel="stylesheet" href="src/css/movement.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <button class="header__back-button" onclick="goBack()">
+            Back to Pulse
+        </button>
+        <h1 class="header__title">Slow<br>Movement</h1>
+        <p class="header__description">
+            Move with intention. Stretch gently.<br>
+            Let tension melt away.
+        </p>
+    </header>
+
+    <main class="main">
+        <div class="movement" id="movement">
+            <div class="movement__container">
+                <div class="movement__figure" id="figure">
+                    <div class="movement__body">
+                        <div class="movement__head"></div>
+                        <div class="movement__torso"></div>
+                        <div class="movement__arm movement__arm--left" id="leftArm"></div>
+                        <div class="movement__arm movement__arm--right" id="rightArm"></div>
+                        <div class="movement__leg movement__leg--left" id="leftLeg"></div>
+                        <div class="movement__leg movement__leg--right" id="rightLeg"></div>
+                    </div>
+                </div>
+            </div>
+            <p class="movement__text" id="movementText">Stretch up</p>
+            <div class="movement__controls">
+                <button class="movement__btn movement__btn--play" id="playBtn" onclick="toggleMovement()">
+                    <span id="playText">Start</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="src/js/movement.js"></script>
+</body>
+</html>
