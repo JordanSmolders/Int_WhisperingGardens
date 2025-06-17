@@ -59,7 +59,10 @@ body {
 .zone__hero-image {
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), linear-gradient(135deg, #e2e8f0 0%, #cbd5e0 100%);
+  background-image: url(../assets/image\ 71.png);
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,9 +71,7 @@ body {
   font-weight: 500;
 }
 
-.zone__hero-image::after {
-  content: "Hero Image";
-}
+
 
 
 .zone__content {

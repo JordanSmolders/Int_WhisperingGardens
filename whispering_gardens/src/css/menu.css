@@ -124,31 +124,22 @@ body {
 }
 
 .activity__image--breathing {
-  background: linear-gradient(135deg, #fef3c7 0%, #f59e0b 100%);
+  background-image: url(../assets/deepbreath.png);
+
 }
 
-.activity__image--breathing::after {
-  content: "Deep Breathing Image";
-  color: #92400e;
-}
+
 
 .activity__image--movement {
-  background: linear-gradient(135deg, #dbeafe 0%, #3b82f6 100%);
+  background-image: url(../assets/slowmovement.png);
 }
 
-.activity__image--movement::after {
-  content: "Slow Movement Image";
-  color: #1e40af;
-}
+
 
 .activity__image--calm {
-  background: linear-gradient(135deg, #fce7f3 0%, #ec4899 100%);
+  background-image: url(../assets/stepcalm.png);
 }
 
-.activity__image--calm::after {
-  content: "Step Calm Image";
-  color: #be185d;
-}
 
 .activity__content {
   display: flex;
