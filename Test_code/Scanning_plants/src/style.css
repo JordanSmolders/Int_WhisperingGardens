@@ -126,7 +126,7 @@ h1 {
   text-align: center;
 }
 
-/* Responsive design */
+
 @media (max-width: 768px) {
   .qr-grid {
     flex-direction: column;

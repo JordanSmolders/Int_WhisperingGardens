@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +14,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Screen Management */
+
 .screen {
     position: fixed;
     top: 0;
@@ -25,7 +25,7 @@ body {
     z-index: 1;
 }
 
-/* Landing Screen */
+
 .landing {
     display: flex;
     flex-direction: column;
@@ -177,7 +177,7 @@ body {
     margin-left: 8px;
 }
 
-/* Menu Screen */
+
 .menu {
     height: 100vh;
     overflow-y: auto;
@@ -321,7 +321,7 @@ body {
     text-align: center;
 }
 
-/* Dance Screen */
+
 .dance {
     height: 100vh;
     display: flex;
@@ -518,7 +518,7 @@ body {
     background-color: #008f5a;
 }
 
-/* Visual Screen */
+
 .visual {
     height: 100vh;
     display: flex;
@@ -633,7 +633,7 @@ body {
     color: white;
 }
 
-/* Word Screen */
+
 .word {
     height: 100vh;
     display: flex;
@@ -725,7 +725,7 @@ body {
     color: white;
 }
 
-/* Voice Screen */
+
 .voice {
     height: 100vh;
     display: flex;
@@ -861,7 +861,7 @@ body {
     color: white;
 }
 
-/* Success Screen */
+
 .success {
     height: 100vh;
     display: flex;
@@ -933,7 +933,7 @@ body {
     border-radius: 12px;
 }
 
-/* Modal */
+
 .modal {
     position: fixed;
     top: 0;
@@ -1011,7 +1011,7 @@ body {
     background-color: #008f5a;
 }
 
-/* Responsive Design */
+
 @media (max-width: 480px) {
     .landing__title {
         font-size: 40px;
@@ -1081,7 +1081,7 @@ body {
     }
 }
 
-/* Landscape orientation adjustments */
+
 @media (orientation: landscape) and (max-height: 500px) {
     .landing__content {
         padding: 0 10px;

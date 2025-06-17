@@ -1,14 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM loaded, generating QR codes...")
 
-  // Check if QRious library is loaded
   if (typeof window.QRious === "undefined") {
     console.error("QRious library not loaded, falling back to manual QR codes")
     createFallbackQRCodes()
     return
   }
 
-  // Generate QR codes using QRious
   const plants = [
     { key: "chamomile", element: "chamomileQR" },
     { key: "mint", element: "mintQR" },
@@ -32,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
-  // Check if images are loading
   const qrImages = document.querySelectorAll(".qr-image")
 
   qrImages.forEach((img, index) => {
@@ -49,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
-  // Add a backup timer in case images take too long
   setTimeout(() => {
     qrImages.forEach((img, index) => {
       if (!img.complete || img.naturalHeight === 0) {
@@ -58,10 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
         img.nextElementSibling.style.display = "block"
       }
     })
-  }, 5000) // 5 second timeout
+  }, 5000) 
 })
 
-// Fallback function to create simple QR codes if library fails
 function createFallbackQRCodes() {
   const plants = [
     { key: "chamomile", element: "chamomileQR" },
@@ -77,7 +72,6 @@ function createFallbackQRCodes() {
 function createFallbackQR(elementId, value) {
   const element = document.getElementById(elementId)
   if (element) {
-    // Use Google Charts API as fallback
     const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(value)}&bgcolor=ffffff&color=2c3e50`
     element.innerHTML = `<img src="${qrUrl}" alt="QR Code for ${value}" style="border: 3px solid #2c3e50; border-radius: 10px; background: white;">`
     console.log(`Fallback QR code created for ${value}`)

@@ -11,14 +11,14 @@ body {
   overflow-x: hidden;
 }
 
-/* Zone Block */
+
 .zone {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Hero Section */
+
 .zone__hero {
   position: relative;
   height: 40vh;
@@ -72,7 +72,7 @@ body {
   content: "Hero Image";
 }
 
-/* Content Section */
+
 .zone__content {
   background: linear-gradient(135deg, #b794f6 0%, #9f7aea 100%);
   color: white;
@@ -138,7 +138,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* Footer Section */
+
 .zone__footer {
   background: #10b981;
   color: white;
@@ -176,7 +176,7 @@ body {
   color: #10b981;
 }
 
-/* Mobile Responsive */
+
 @media screen and (max-width: 375px) {
   .zone__content {
     padding: 30px 16px;

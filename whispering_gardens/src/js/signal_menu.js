@@ -1,6 +1,5 @@
-// Menu Page JavaScript
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize GSAP animations
     gsap.from('.menu__title-section', { 
         duration: 0.8, 
         x: -50, 
@@ -29,12 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
         delay: 0.6 
     });
 
-    // Event listeners
     document.getElementById('menuCloseBtn').addEventListener('click', () => {
         window.location.href = 'signal.html';
     });
-
-    // Menu option clicks
+    
     document.querySelectorAll('.menu__option').forEach(option => {
         option.addEventListener('click', (e) => {
             const optionType = e.currentTarget.dataset.option;

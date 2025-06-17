@@ -17,7 +17,7 @@ body {
   flex-direction: column;
 }
 
-/* Header */
+
 .scanner__header {
   background: #FFBF50;
   padding: 20px;
@@ -49,7 +49,7 @@ body {
   justify-content: center;
 }
 
-/* Instructions */
+
 .scanner__instructions {
   font-size: 16px;
   color: #000;
@@ -65,7 +65,7 @@ body {
   max-width: 300px;
 }
 
-/* Camera Container - Much smaller like in the design */
+
 .scanner__camera-container {
   flex: 1;
   position: relative;
@@ -84,7 +84,7 @@ body {
   object-fit: cover;
 }
 
-/* Permission Dialog */
+
 .scanner__permission {
   position: absolute;
   top: 50%;
@@ -150,7 +150,7 @@ body {
   transform: translateY(-1px);
 }
 
-/* Scanner Overlay - White corners like in design */
+
 .scanner__overlay {
   position: absolute;
   top: 0;
@@ -215,7 +215,7 @@ body {
   animation: pulse 2s ease-in-out infinite;
 }
 
-/* QR Codes Section */
+
 .scanner__qr-codes {
   padding: 30px 20px;
   text-align: center;
@@ -252,7 +252,7 @@ body {
   font-weight: bold;
 }
 
-/* AR Overlay Styles */
+
 .ar-overlay {
   position: fixed;
   top: 0;
@@ -317,7 +317,7 @@ body {
   background: #f4a261;
 }
 
-/* AR Plant Card Styles */
+
 .ar-plant-card {
   background: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
@@ -449,7 +449,7 @@ body {
   font-weight: bold;
 }
 
-/* Plant-specific AR colors */
+
 .ar-plant-card--chamomile {
   background: linear-gradient(135deg, rgba(255, 223, 0, 0.15), rgba(255, 165, 0, 0.15));
   border-color: rgba(255, 193, 7, 0.3);
@@ -465,7 +465,7 @@ body {
   border-color: rgba(147, 112, 219, 0.3);
 }
 
-/* Animations */
+
 @keyframes ar-entrance {
   0% {
     opacity: 0;

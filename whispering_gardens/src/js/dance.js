@@ -1,4 +1,4 @@
-// Dance Page JavaScript
+
 class DanceRecorder {
     constructor() {
         this.mediaRecorder = null;
@@ -18,7 +18,7 @@ class DanceRecorder {
         this.bindEvents();
         this.initCamera();
         
-        // GSAP animations
+        
         gsap.from('.dance__title', { duration: 0.8, y: -30, opacity: 0 });
         gsap.from('.dance__description', { duration: 0.8, y: 20, opacity: 0, delay: 0.2 });
         gsap.from('.dance__video-container', { duration: 1, scale: 0.9, opacity: 0, delay: 0.4 });
@@ -50,7 +50,7 @@ class DanceRecorder {
             this.showModal('upload');
         });
         
-        // Timer buttons
+      
         document.querySelectorAll('.dance__timer-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 document.querySelectorAll('.dance__timer-btn').forEach(b => 
@@ -60,7 +60,7 @@ class DanceRecorder {
             });
         });
         
-        // Modal events
+       
         document.getElementById('modalCancelBtn').addEventListener('click', () => {
             this.hideModal();
         });
