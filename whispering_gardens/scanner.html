@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zone83 - Scanner</title>
+    <link rel="stylesheet" href="src/css/scanner.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+    <script src="https://unpkg.com/qr-scanner@1.4.2/qr-scanner.umd.min.js"></script>
+</head>
+<body>
+    <div class="scanner">
+        <div class="scanner__header">
+            <h1 class="scanner__title">Zone 1<br>THREAD</h1>
+            <p class="scanner__instructions">
+                Scan the plant you want to explore, point the camera at the plant until the blue line appears.
+            </p>
+            <button class="scanner__close" id="closeButton">×</button>
+        </div>
+
+        <div class="scanner__camera-container">
+            <div class="scanner__permission" id="permissionDialog">
+                <h3>Abby would like to access your camera</h3>
+                <p>Please give us access to your camera</p>
+                <div class="scanner__permission-buttons">
+                    <button class="scanner__permission-button scanner__permission-button--deny" id="denyButton">Don't allow</button>
+                    <button class="scanner__permission-button scanner__permission-button--allow" id="allowButton">Allow</button>
+                </div>
+            </div>
+
+            <video class="scanner__video" id="videoElement" autoplay playsinline muted style="display: none;"></video>
+            
+            <div class="scanner__overlay">
+                <div class="scanner__corners">
+                    <div class="scanner__corner scanner__corner--top-left"></div>
+                    <div class="scanner__corner scanner__corner--top-right"></div>
+                    <div class="scanner__corner scanner__corner--bottom-left"></div>
+                    <div class="scanner__corner scanner__corner--bottom-right"></div>
+                    <div class="scanner__line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AR Overlay -->
+    <div class="ar-overlay" id="arOverlay">
+        <div class="ar-content" id="arContent">
+            <button class="ar-close" id="arClose">×</button>
+            <!-- Plant info will be inserted here -->
+        </div>
+    </div>
+
+    <script src="src/js/scanner.js"></script>
+</body>
+</html>
