@@ -47,9 +47,7 @@ button {
 }
 
 button:first-child {
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
-  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 button:last-child {
@@ -130,8 +128,8 @@ h1 {
 }
 
 .green-background {
-  width: 100vw; /* Full viewport width */
-  height: 468px; /* Fixed height */
+  width: 100vw;
+  height: 468px;
   position: absolute;
   z-index: -1;
   object-fit: cover;

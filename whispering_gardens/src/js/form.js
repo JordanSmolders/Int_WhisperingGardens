@@ -14,14 +14,13 @@
   const confirmNo = document.querySelector("#confirmNo");
   const currentStepElement = document.querySelector(`.form-step[data-step="${currentStep}"]`)
   const requiredInputs = currentStepElement.querySelectorAll("input[required], textarea[required]")
-  let isValid = true
 
   updateStepDisplay()
   updateProgressBar()
 
 
   optionBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", () => {  
       optionBtns.forEach((b) => b.classList.remove("selected"))
       btn.classList.add("selected")
       eventTypeInput.value = btn.dataset.value
@@ -104,6 +103,7 @@ confirmNo.addEventListener("click", () => {
 
 
 const validateCurrentStep = () => {
+    let isValid = true;
     requiredInputs.forEach((input) => {
       if (!input.value.trim()) {
         input.style.borderColor = "#e74c3c"

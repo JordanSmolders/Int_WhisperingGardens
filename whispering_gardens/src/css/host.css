@@ -141,7 +141,7 @@
 }
 
 .image-container {
-  background-image: url(../assets/host_image.png);
+  background-image: url(../assets/host_image.webp);
   position: absolute;
   bottom: -10%;
   height: 115px;

@@ -54,7 +54,11 @@
       </header>
 
       <div class="form-content">
-        <form id="multiStepForm">
+        <form
+          id="multiStepForm"
+          action="https://www.domantas.be/contact.php"
+          method="POST"
+        >
           <div class="form-step active" data-step="1">
             <h1>Hi there, what's your name?</h1>
             <div class="form-group">
@@ -221,6 +225,14 @@
               </div>
             </div>
           </div>
+          <button
+            type="submit"
+            class="submit-btn"
+            id="submitBtn"
+            style="display: none"
+          >
+            Submit
+          </button>
         </form>
       </div>
 
@@ -252,14 +264,6 @@
               fill="black"
             />
           </svg>
-        </button>
-        <button
-          type="submit"
-          class="submit-btn"
-          id="submitBtn"
-          style="display: none"
-        >
-          Submit
         </button>
       </footer>
     </div>
