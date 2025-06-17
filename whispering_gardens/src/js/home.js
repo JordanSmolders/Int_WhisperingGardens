@@ -84,7 +84,9 @@ const initializeMap = (containerId) => {
 const map = L.map(containerId, {
   zoomControl: false,
   minZoom: 19,   
-  maxZoom: 22
+  maxZoom: 22,
+  maxBounds: gardenBounds,
+  maxBoundsViscosity: 1.0
 }).setView(center, zoomLevel);
   L.control.zoom({ position: "bottomright" }).addTo(map);
   L.imageOverlay(imageUrl, gardenBounds).addTo(map);
