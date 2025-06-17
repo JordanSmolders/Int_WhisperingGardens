@@ -1,7 +1,4 @@
-/**
- * Slow Movement Application
- * Handles gentle movement animations and exercises
- */
+
 
 const gsap = window.gsap;
 
@@ -21,7 +18,7 @@ class MovementApp {
     this.currentExercise = 0
     this.animationRunning = false
 
-    // Exercise sequence
+
     this.exercises = [
       {
         name: "Stretch up",
@@ -59,7 +56,7 @@ class MovementApp {
   }
 
   setupInitialAnimations() {
-    // Animate elements on page load
+   
     gsap.from(".header", {
       y: -50,
       opacity: 0,
@@ -93,7 +90,7 @@ class MovementApp {
   }
 
   setupEventListeners() {
-    // Handle page visibility changes
+   
     document.addEventListener("visibilitychange", () => {
       if (document.hidden && this.isPlaying) {
         this.pauseMovement()
@@ -126,7 +123,7 @@ class MovementApp {
     this.animationRunning = false
     this.playText.textContent = "Resume"
 
-    // Kill all animations
+    
     gsap.killTweensOf([this.figure, this.leftArm, this.rightArm, this.leftLeg, this.rightLeg])
 
     console.log("Movement paused")
@@ -138,7 +135,7 @@ class MovementApp {
     this.playText.textContent = "Start"
     this.currentExercise = 0
 
-    // Reset to initial position
+  
     this.resetPosition()
     this.updateText("Stretch up")
 
@@ -150,7 +147,7 @@ class MovementApp {
 
     const exercise = this.exercises[this.currentExercise]
     if (!exercise) {
-      // Sequence complete, restart
+   
       this.currentExercise = 0
       setTimeout(() => {
         if (this.animationRunning) {
@@ -164,7 +161,6 @@ class MovementApp {
     this.updateText(exercise.name, () => {
       exercise.animation()
 
-      // Move to next exercise after duration
       setTimeout(() => {
         if (this.animationRunning) {
           this.currentExercise++
@@ -197,7 +193,7 @@ class MovementApp {
     gsap.set(this.rightLeg, { rotation: 0 })
   }
 
-  // Exercise Animations
+  
   stretchUp() {
     gsap.to(this.leftArm, {
       rotation: -160,
@@ -284,9 +280,7 @@ class MovementApp {
   }
 }
 
-/**
- * Navigation Functions
- */
+
 function toggleMovement() {
   if (window.movementApp) {
     window.movementApp.toggleMovement()
@@ -310,9 +304,6 @@ function goBack() {
   })
 }
 
-/**
- * Initialize the application
- */
 document.addEventListener("DOMContentLoaded", () => {
   try {
     window.movementApp = new MovementApp()
@@ -322,9 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 })
 
-/**
- * Cleanup when page is about to unload
- */
+
 window.addEventListener("beforeunload", () => {
   if (window.movementApp) {
     window.movementApp.stopMovement()

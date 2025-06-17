@@ -1,4 +1,4 @@
-// Voice Page JavaScript
+
 class VoiceRecorder {
     constructor() {
         this.audioRecorder = null;
@@ -14,7 +14,6 @@ class VoiceRecorder {
     init() {
         this.bindEvents();
         
-        // GSAP animations
         gsap.from('.voice__title', { duration: 0.8, y: -30, opacity: 0 });
         gsap.from('.voice__description', { duration: 0.8, y: 20, opacity: 0, delay: 0.2 });
         gsap.from('.voice__recorder-container', { duration: 1, scale: 0.9, opacity: 0, delay: 0.4 });

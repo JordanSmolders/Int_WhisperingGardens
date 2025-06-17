@@ -1,6 +1,6 @@
-// Landing Page JavaScript
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize GSAP animations
+  
     gsap.from('.landing__logo', { 
         duration: 1, 
         y: -50, 
@@ -29,16 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
         opacity: 0 
     });
 
-    // Event listeners
+ 
     document.getElementById('startSignalBtn').addEventListener('click', () => {
         window.location.href = 'signal_menu.html';
     });
-     // Event listeners
+  
     document.getElementById('landingCloseBtn').addEventListener('click', () => {
         window.location.href = 'home.html';
     });
 
-    // Calendar button (placeholder functionality)
+  
     document.querySelector('.landing__calendar-button').addEventListener('click', () => {
         alert('Calendar feature would be implemented here.');
     });

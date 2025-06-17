@@ -1,8 +1,8 @@
 {
-  "name": "scanning-plants",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "zone83-plant-scanner",
+  "version": "1.0.0",
+  "description": "A web app for scanning QR codes to learn about medicinal plants with AR display",
+  "main": "index.html",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,5 +10,9 @@
   },
   "devDependencies": {
     "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "qr-scanner": "^1.4.2",
+    "qrcode": "^1.5.4"
   }
 }

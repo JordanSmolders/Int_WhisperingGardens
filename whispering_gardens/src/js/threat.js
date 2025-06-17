@@ -1,10 +1,9 @@
 const gsap = window.gsap;
 
 document.addEventListener("DOMContentLoaded", () => {
-  // GSAP animations for the landing page
+
   const tl = gsap.timeline()
 
-  // Animate leaves falling in
   tl.from(".header__leaf", {
     duration: 1,
     y: -100,
@@ -12,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     stagger: 0.2,
     ease: "bounce.out",
   })
-    // Animate hero content
     .from(
       ".hero__eye",
       {
@@ -64,10 +62,9 @@ document.addEventListener("DOMContentLoaded", () => {
       "-=0.3",
     )
 
-  // Start button functionality
   const startButton = document.getElementById("startButton")
   startButton.addEventListener("click", () => {
-    // Add click animation
+
     gsap.to(startButton, {
       duration: 0.1,
       scale: 0.95,
@@ -75,13 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
       repeat: 1,
       ease: "power2.inOut",
       onComplete: () => {
-        // Navigate to scanner page
+  
         window.location.href = "scanner.html"
       },
     })
   })
 
-  // Eye tracking mouse movement
   const eye = document.querySelector(".hero__pupil")
   const eyeContainer = document.querySelector(".hero__eye")
 
@@ -112,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = 'home.html';
     });
 
-  // Footer button hover effect
   const footerButton = document.querySelector(".footer__button")
   if (footerButton) {
     footerButton.addEventListener("mouseenter", () => {

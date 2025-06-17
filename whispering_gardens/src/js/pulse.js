@@ -1,9 +1,4 @@
-/**
- * Pulse Deep Breathing Application
- * Handles the breathing animation and user interactions
- */
 
-// Import gsap library
 const gsap = window.gsap;
 
 class PulseApp {
@@ -15,7 +10,7 @@ class PulseApp {
     this.animationRunning = false
     this.currentCycle = 0
 
-    // Breathing timing configuration
+    
     this.config = {
       inhaleTime: 4, // seconds
       exhaleTime: 4, // seconds
@@ -30,14 +25,14 @@ class PulseApp {
     this.setupEventListeners()
     this.setupInitialAnimations()
 
-    // Start the breathing animation after a short delay
+    
     setTimeout(() => {
       this.startPulseCycle()
     }, 1000)
   }
 
   setupInitialAnimations() {
-    // Animate elements on page load
+  
     gsap.from(".header", {
       y: -50,
       opacity: 0,
@@ -63,7 +58,7 @@ class PulseApp {
   }
 
   setupEventListeners() {
-    // Handle page visibility changes to pause/resume animation
+    
     document.addEventListener("visibilitychange", () => {
       if (document.hidden) {
         this.pausePulse()
@@ -72,7 +67,7 @@ class PulseApp {
       }
     })
 
-    // Handle window focus/blur
+    
     window.addEventListener("blur", () => this.pausePulse())
     window.addEventListener("focus", () => this.resumePulse())
   }
@@ -99,7 +94,6 @@ class PulseApp {
 
   inhale() {
     this.updateText("Breath in", () => {
-      // Scale up circle for inhale
       gsap.to(this.circle, {
         scale: 1,
         duration: this.config.inhaleTime,
@@ -107,7 +101,6 @@ class PulseApp {
         onComplete: () => {
           if (!this.animationRunning) return
 
-          // Hold for specified time, then switch to exhale
           setTimeout(() => {
             if (!this.animationRunning) return
             this.isInhaling = false
@@ -120,7 +113,7 @@ class PulseApp {
 
   exhale() {
     this.updateText("Breath out", () => {
-      // Scale down circle for exhale
+   
       gsap.to(this.circle, {
         scale: 0.4,
         duration: this.config.exhaleTime,
@@ -128,7 +121,6 @@ class PulseApp {
         onComplete: () => {
           if (!this.animationRunning) return
 
-          // Hold for specified time, then switch to inhale
           setTimeout(() => {
             if (!this.animationRunning) return
             this.isInhaling = true
@@ -140,15 +132,12 @@ class PulseApp {
   }
 
   updateText(text, callback) {
-    // Fade out current text
     gsap.to(this.pulseText, {
       opacity: 0,
       duration: this.config.textFadeTime,
       onComplete: () => {
-        // Update text content
         this.pulseText.textContent = text
 
-        // Fade in new text
         gsap.to(this.pulseText, {
           opacity: 0.8,
           duration: this.config.textFadeTime,
@@ -179,7 +168,6 @@ class PulseApp {
     this.animationRunning = false
     gsap.killTweensOf([this.circle, this.pulseText])
 
-    // Reset to initial state
     gsap.set(this.circle, { scale: 1 })
     gsap.set(this.pulseText, { opacity: 0.8 })
     this.pulseText.textContent = "Breath in"
@@ -190,9 +178,6 @@ class PulseApp {
   }
 }
 
-/**
- * Navigation Functions
- */
 function goBack() {
   if (window.pulseApp) {
     window.pulseApp.stopPulse()
@@ -200,7 +185,6 @@ function goBack() {
 
   console.log("Going back to Pulse menu")
 
-  // Add exit animation
   gsap.to("body", {
     opacity: 0,
     duration: 0.5,
@@ -211,9 +195,6 @@ function goBack() {
   })
 }
 
-/**
- * Initialize the application
- */
 document.addEventListener("DOMContentLoaded", () => {
   try {
     window.pulseApp = new PulseApp()
@@ -223,9 +204,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 })
 
-/**
- * Cleanup when page is about to unload
- */
 window.addEventListener("beforeunload", () => {
   if (window.pulseApp) {
     window.pulseApp.stopPulse()

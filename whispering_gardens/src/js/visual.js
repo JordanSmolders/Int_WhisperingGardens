@@ -1,4 +1,4 @@
-// Visual Page JavaScript
+
 class VisualCapture {
     constructor() {
         this.stream = null;
@@ -12,7 +12,7 @@ class VisualCapture {
         this.bindEvents();
         this.initCamera();
         
-        // GSAP animations
+
         gsap.from('.visual__title', { duration: 0.8, y: -30, opacity: 0 });
         gsap.from('.visual__description', { duration: 0.8, y: 20, opacity: 0, delay: 0.2 });
         gsap.from('.visual__camera-container', { duration: 1, scale: 0.9, opacity: 0, delay: 0.4 });
@@ -76,7 +76,6 @@ class VisualCapture {
             video.style.display = 'none';
             canvas.style.display = 'block';
             
-            // Animate capture
             gsap.from(canvas, { duration: 0.3, scale: 1.1, ease: 'back.out(1.7)' });
         });
     }

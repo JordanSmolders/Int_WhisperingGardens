@@ -1,7 +1,4 @@
-/**
- * Menu Selection Application
- * Handles activity selection and navigation
- */
+
 
 const gsap = window.gsap;
 
@@ -17,7 +14,7 @@ class MenuApp {
   }
 
   setupAnimations() {
-    // Animate elements on page load
+ 
     gsap.from(".menu__header", {
       y: -50,
       opacity: 0,
@@ -36,7 +33,7 @@ class MenuApp {
   }
 
   setupEventListeners() {
-    // Add hover animations for activity cards
+
     const activities = document.querySelectorAll(".activity")
 
     activities.forEach((activity) => {
@@ -57,7 +54,7 @@ class MenuApp {
       })
     })
 
-    // Close button animation
+
     const closeBtn = document.querySelector(".menu__close-btn")
     if (closeBtn) {
       closeBtn.addEventListener("mouseenter", () => {
@@ -74,7 +71,7 @@ class MenuApp {
     this.selectedActivity = activityType
     console.log(`Selected activity: ${activityType}`)
 
-    // Add selection animation
+   
     const selectedCard = event.currentTarget
 
     gsap.to(selectedCard, {
@@ -90,13 +87,13 @@ class MenuApp {
   }
 
   navigateToActivity(activityType) {
-    // Add exit animation
+
     gsap.to(".menu", {
       opacity: 0,
       duration: 0.5,
       ease: "power2.inOut",
       onComplete: () => {
-        // Navigate based on activity type
+       
         switch (activityType) {
           case "deep-breathing":
             window.location.href = "deepbreathing.html"
@@ -117,9 +114,7 @@ class MenuApp {
   }
 }
 
-/**
- * Navigation Functions
- */
+
 function selectActivity(activityType) {
   if (window.menuApp) {
     window.menuApp.selectActivity(activityType)
@@ -129,22 +124,20 @@ function selectActivity(activityType) {
 function closeMenu() {
   console.log("Closing menu")
 
-  // Add exit animation
+
   gsap.to(".menu", {
     scale: 0.9,
     opacity: 0,
     duration: 0.4,
     ease: "power2.inOut",
     onComplete: () => {
-      // Navigate back to zone
+    
       window.location.href = "Pulse.html"
     },
   })
 }
 
-/**
- * Initialize the application
- */
+
 document.addEventListener("DOMContentLoaded", () => {
   try {
     window.menuApp = new MenuApp()

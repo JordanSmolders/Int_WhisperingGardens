@@ -1,11 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zone83 - QR Codes</title>
+    <link rel="stylesheet" href="src/style.css">
 </head>
 <body>
-  
+    <h1>Zone83 Plant QR Codes</h1>
+    
+    <div class="qr-grid">
+        <div class="qr-item">
+            <h3>🌼 Chamomile</h3>
+            <div class="qr-container" id="chamomileQR">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=chamomile&bgcolor=ffffff&color=2c3e50" 
+                     alt="Chamomile QR Code" 
+                     class="qr-image"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="qr-fallback" style="display: none;">
+                    <div class="qr-placeholder">
+                        <p>QR Code</p>
+                        <p>chamomile</p>
+                    </div>
+                </div>
+            </div>
+            <p>Scan for sleep & relaxation info</p>
+        </div>
+        
+        <div class="qr-item">
+            <h3>🌿 Mint</h3>
+            <div class="qr-container" id="mintQR">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=mint&bgcolor=ffffff&color=2c3e50" 
+                     alt="Mint QR Code" 
+                     class="qr-image"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="qr-fallback" style="display: none;">
+                    <div class="qr-placeholder">
+                        <p>QR Code</p>
+                        <p>mint</p>
+                    </div>
+                </div>
+            </div>
+            <p>Scan for digestive properties</p>
+        </div>
+        
+        <div class="qr-item">
+            <h3>💜 Lavender</h3>
+            <div class="qr-container" id="lavenderQR">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=lavender&bgcolor=ffffff&color=2c3e50" 
+                     alt="Lavender QR Code" 
+                     class="qr-image"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="qr-fallback" style="display: none;">
+                    <div class="qr-placeholder">
+                        <p>QR Code</p>
+                        <p>lavender</p>
+                    </div>
+                </div>
+            </div>
+            <p>Scan for aromatherapy info</p>
+        </div>
+    </div>
+
+    <div class="instructions">
+        <h2>How to Use</h2>
+        <ol>
+            <li>Allow camera permissions when prompted</li>
+            <li>Point your camera at any QR code above</li>
+            <li>View the AR plant information that appears</li>
+            <li>Learn about medicinal properties and healing rituals</li>
+        </ol>
+        <p><strong>Tip:</strong> You can print this page or display it on another screen to scan the codes!</p>
+    </div>
+
+    <script src="src/qr-codes.js"></script>
 </body>
 </html>

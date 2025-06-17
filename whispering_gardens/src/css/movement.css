@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +11,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Header Block */
+
 .header {
   background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
   color: white;
@@ -61,7 +61,7 @@ body {
   font-weight: 400;
 }
 
-/* Main Content Block */
+
 .main {
   background-color: #f8f9fa;
   min-height: calc(100vh - 200px);
@@ -73,7 +73,7 @@ body {
   position: relative;
 }
 
-/* Movement Block */
+
 .movement {
   display: flex;
   flex-direction: column;
@@ -203,7 +203,7 @@ body {
   background: #059669;
 }
 
-/* Mobile Responsive */
+
 @media screen and (max-width: 375px) {
   .header {
     padding: 16px;

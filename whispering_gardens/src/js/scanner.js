@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const arContent = document.getElementById("arContent")
   const arClose = document.getElementById("arClose")
 
-  // Plant database
   const plantDatabase = {
     chamomile: {
       name: "Chamomile",
@@ -91,16 +90,14 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   }
 
-  // Import QrScanner
+
   const QrScanner = window.QrScanner
 
-  // Camera permission handlers
   allowButton.addEventListener("click", startCamera)
   denyButton.addEventListener("click", () => {
     alert("Camera access is required to scan QR codes.")
   })
 
-  // Close button handler
   closeButton.addEventListener("click", () => {
     if (qrScanner) {
       qrScanner.stop()
@@ -108,7 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "thread.html"
   })
 
-  // Start camera
   async function startCamera() {
     try {
       permissionDialog.style.display = "none"
@@ -119,7 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       videoElement.srcObject = stream
 
-      // Start QR scanner
       qrScanner = new QrScanner(videoElement, handleQRResult, {
         highlightScanRegion: false,
         highlightCodeOutline: false,
@@ -131,7 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Handle QR scan result
   function handleQRResult(result) {
     const plantKey = result.data
 
@@ -141,7 +135,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Show plant information in AR
   function showPlantInfo(plantKey) {
     const plant = plantDatabase[plantKey]
 
@@ -182,18 +175,15 @@ document.addEventListener("DOMContentLoaded", () => {
     arOverlay.style.display = "flex"
   }
 
-  // Close AR overlay
   function closeAR() {
     arOverlay.style.display = "none"
     if (qrScanner) qrScanner.start()
   }
 
-  // Make closeAR globally accessible
   window.closeAR = closeAR
 
   arClose.addEventListener("click", closeAR)
 
-  // Cleanup on page unload
   window.addEventListener("beforeunload", () => {
     if (qrScanner) {
       qrScanner.stop()

@@ -1,4 +1,4 @@
-// Word Page JavaScript
+
 class WordInput {
     constructor() {
         this.userData = JSON.parse(localStorage.getItem('signalUserData')) || { word: [] };
@@ -10,13 +10,13 @@ class WordInput {
         this.bindEvents();
         this.loadDraft();
         
-        // GSAP animations
+   
         gsap.from('.word__title', { duration: 0.8, y: -30, opacity: 0 });
         gsap.from('.word__description', { duration: 0.8, y: 20, opacity: 0, delay: 0.2 });
         gsap.from('.word__input-container', { duration: 1, y: 30, opacity: 0, delay: 0.4 });
         gsap.from('.word__actions', { duration: 0.8, y: 20, opacity: 0, delay: 0.6 });
         
-        // Focus on textarea after animations
+     
         setTimeout(() => {
             document.getElementById('wordTextarea').focus();
         }, 800);
@@ -36,7 +36,7 @@ class WordInput {
             this.submitWord();
         });
         
-        // Auto-save as user types
+      
         document.getElementById('wordTextarea').addEventListener('input', (e) => {
             this.autoSave(e.target.value);
         });
@@ -48,7 +48,7 @@ class WordInput {
             }
         });
         
-        // Character count (optional feature)
+
         document.getElementById('wordTextarea').addEventListener('input', (e) => {
             this.updateCharacterCount(e.target.value.length);
         });
@@ -73,7 +73,7 @@ class WordInput {
     clearText() {
         const textarea = document.getElementById('wordTextarea');
         
-        // Animate clear action
+ 
         gsap.to(textarea, {
             duration: 0.2,
             scale: 0.98,
@@ -83,7 +83,7 @@ class WordInput {
                 textarea.focus();
                 localStorage.removeItem('wordDraft');
                 
-                // Animate back to normal
+             
                 gsap.to(textarea, {
                     duration: 0.2,
                     scale: 1,
@@ -98,7 +98,7 @@ class WordInput {
         const text = textarea.value.trim();
         
         if (!text) {
-            // Animate error state
+         
             gsap.to(textarea, {
                 duration: 0.1,
                 x: -10,
@@ -115,14 +115,14 @@ class WordInput {
             return;
         }
         
-        // Validate text length (optional)
+  
         if (text.length > 1000) {
             alert('Please keep your message under 1000 characters.');
             textarea.focus();
             return;
         }
         
-        // Save the word signal
+
         this.userData.word.push({
             text: text,
             timestamp: new Date().toISOString(),
@@ -132,10 +132,10 @@ class WordInput {
         
         this.saveUserData();
         
-        // Clear draft since we're submitting
+      
         localStorage.removeItem('wordDraft');
         
-        // Animate success and navigate
+      
         gsap.to('.word__content', {
             duration: 0.5,
             scale: 0.95,
@@ -148,7 +148,7 @@ class WordInput {
     }
     
     autoSave(text) {
-        // Debounced auto-save to prevent excessive localStorage writes
+     
         clearTimeout(this.autoSaveTimeout);
         this.autoSaveTimeout = setTimeout(() => {
             if (text.trim()) {
@@ -160,18 +160,16 @@ class WordInput {
     }
     
     updateCharacterCount(count) {
-        // Optional: Add character count display
-        // This would require adding a character count element to the HTML
+    
         const maxChars = 1000;
         const remaining = maxChars - count;
         
-        // You could add this element to word.html if desired:
-        // <div class="word__char-count" id="charCount">1000 characters remaining</div>
+     
         const charCountElement = document.getElementById('charCount');
         if (charCountElement) {
             charCountElement.textContent = `${remaining} characters remaining`;
             
-            // Change color based on remaining characters
+         
             if (remaining < 100) {
                 charCountElement.style.color = '#ff5722';
             } else if (remaining < 200) {
@@ -183,7 +181,7 @@ class WordInput {
     }
     
     saveUserData() {
-        // Create a clean version for storage (without blob data)
+       
         const dataToSave = {
             ...this.userData,
             word: this.userData.word.map(item => ({
@@ -198,7 +196,7 @@ class WordInput {
         console.log('Word data saved:', dataToSave.word[dataToSave.word.length - 1]);
     }
     
-    // Method to get user statistics
+  
     getUserStats() {
         const totalWords = this.userData.word.reduce((total, entry) => total + (entry.wordCount || 0), 0);
         const totalCharacters = this.userData.word.reduce((total, entry) => total + (entry.characterCount || 0), 0);
@@ -212,7 +210,7 @@ class WordInput {
         };
     }
     
-    // Method to export user's words (for debugging or future features)
+    
     exportWords() {
         const words = this.userData.word.map(entry => ({
             text: entry.text,
@@ -226,15 +224,15 @@ class WordInput {
     }
 }
 
-// Initialize when DOM is loaded
+
 document.addEventListener('DOMContentLoaded', () => {
     new WordInput();
 });
 
-// Handle page visibility changes to save drafts
+
 document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
-        // Page is being hidden, save draft
+       
         const text = document.getElementById('wordTextarea')?.value;
         if (text && text.trim()) {
             localStorage.setItem('wordDraft', text);
@@ -242,7 +240,7 @@ document.addEventListener('visibilitychange', () => {
     }
 });
 
-// Handle beforeunload to save drafts
+
 window.addEventListener('beforeunload', () => {
     const text = document.getElementById('wordTextarea')?.value;
     if (text && text.trim()) {

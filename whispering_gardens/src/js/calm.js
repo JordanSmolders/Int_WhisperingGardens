@@ -1,10 +1,4 @@
-/**
- * Step Calm Application
- * Handles the 5-4-3-2-1 grounding technique
- */
 
-// Import or declare gsap variable here
-const gsap = window.gsap;
 
 class CalmApp {
   constructor() {
@@ -18,7 +12,7 @@ class CalmApp {
     this.totalSteps = 5
     this.isComplete = false
 
-    // Sense data
+   
     this.senseData = [
       {
         title: "See",
@@ -62,7 +56,7 @@ class CalmApp {
   }
 
   setupInitialAnimations() {
-    // Animate elements on page load
+   
     gsap.from(".header", {
       y: -50,
       opacity: 0,
@@ -97,7 +91,7 @@ class CalmApp {
   }
 
   setupEventListeners() {
-    // Add click listeners to sense cards
+   
     this.senses.forEach((sense, index) => {
       sense.addEventListener("click", () => {
         if (index === this.currentStep) {
@@ -110,7 +104,7 @@ class CalmApp {
   nextSense() {
     if (this.isComplete) return
 
-    // Animate current sense out
+    
     const currentSense = this.senses[this.currentStep]
     gsap.to(currentSense, {
       scale: 0.9,
@@ -126,7 +120,7 @@ class CalmApp {
       return
     }
 
-    // Animate next sense in
+   
     const nextSense = this.senses[this.currentStep]
     nextSense.classList.add("calm__sense--active")
 
@@ -147,7 +141,7 @@ class CalmApp {
   completeExercise() {
     this.isComplete = true
 
-    // Animate completion
+    
     gsap.to(this.progressFill, {
       width: "100%",
       duration: 0.5,
@@ -156,7 +150,7 @@ class CalmApp {
 
     this.progressText.textContent = "Complete! Well done."
 
-    // Celebrate animation
+    
     gsap.to(".calm__progress", {
       scale: 1.05,
       duration: 0.3,
@@ -165,13 +159,13 @@ class CalmApp {
       ease: "power2.inOut",
     })
 
-    // Update button
+ 
     this.nextBtn.textContent = "Completed ✓"
     this.nextBtn.disabled = true
 
     console.log("Calm exercise completed!")
 
-    // Auto-reset after 3 seconds
+    
     setTimeout(() => {
       this.resetCalm()
     }, 3000)
@@ -181,7 +175,7 @@ class CalmApp {
     this.currentStep = 0
     this.isComplete = false
 
-    // Reset all senses
+  
     this.senses.forEach((sense, index) => {
       sense.classList.remove("calm__sense--active")
       if (index === 0) {
@@ -189,7 +183,7 @@ class CalmApp {
       }
     })
 
-    // Reset animations
+    
     gsap.set(this.senses, {
       scale: 1,
       opacity: (index) => (index === 0 ? 1 : 0.4),
@@ -198,7 +192,7 @@ class CalmApp {
     this.updateProgress()
     this.updateButtonState()
 
-    // Animate reset
+   
     gsap.from(".calm__sense--active", {
       scale: 0,
       duration: 0.5,
@@ -232,9 +226,7 @@ class CalmApp {
   }
 }
 
-/**
- * Navigation Functions
- */
+
 function nextSense() {
   if (window.calmApp) {
     window.calmApp.nextSense()
@@ -260,9 +252,7 @@ function goBack() {
   })
 }
 
-/**
- * Initialize the application
- */
+
 document.addEventListener("DOMContentLoaded", () => {
   try {
     window.calmApp = new CalmApp()

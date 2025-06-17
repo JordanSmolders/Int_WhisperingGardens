@@ -1,7 +1,3 @@
-/**
- * Zone Starting Screen Application
- * Handles the initial zone introduction and navigation
- */
 
 const gsap = window.gsap;
 
@@ -16,7 +12,7 @@ class ZoneApp {
   }
 
   setupAnimations() {
-    // Animate elements on page load
+   
     gsap.from(".zone__hero", {
       opacity: 0,
       duration: 0.8,
@@ -64,7 +60,7 @@ class ZoneApp {
   }
 
   setupEventListeners() {
-    // Add hover animations for interactive elements
+   
     const startBtn = document.querySelector(".zone__start-btn")
     const calendarBtn = document.querySelector(".zone__calendar-btn")
     const closeBtn = document.querySelector(".zone__close-btn")
@@ -101,19 +97,15 @@ class ZoneApp {
   }
 }
 
-/**
- * Navigation Functions
- */
+
 function startPulse() {
   console.log("Starting pulse - navigating to menu")
 
-  // Add exit animation
   gsap.to(".zone", {
     opacity: 0,
     duration: 0.5,
     ease: "power2.inOut",
     onComplete: () => {
-      // Navigate to menu page
       window.location.href = "Pulse_menu.html"
     },
   })
@@ -121,14 +113,13 @@ function startPulse() {
 
 function viewCalendar() {
   console.log("Opening calendar")
-  // Add your calendar navigation logic here
-  // window.open('calendar.html', '_blank')
+
 }
 
 function closeZone() {
   console.log("Closing zone")
 
-  // Add exit animation
+
   gsap.to(".zone", {
     scale: 0.9,
     opacity: 0,
@@ -141,9 +132,6 @@ function closeZone() {
   })
 }
 
-/**
- * Initialize the application
- */
 let zoneApp
 
 document.addEventListener("DOMContentLoaded", () => {

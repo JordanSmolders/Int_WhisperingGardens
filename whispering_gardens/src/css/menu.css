@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -11,14 +11,14 @@ body {
   overflow-x: hidden;
 }
 
-/* Menu Block */
+
 .menu {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* Header Block */
+
 .menu__header {
   background: linear-gradient(135deg, #b794f6 0%, #9f7aea 100%);
   color: white;
@@ -79,7 +79,7 @@ body {
   opacity: 0.95;
 }
 
-/* Main Content */
+
 .menu__main {
   flex: 1;
   background-color: #f8f9fa;
@@ -94,7 +94,7 @@ body {
   margin: 0 auto;
 }
 
-/* Activity Block */
+
 .activity {
   background: white;
   border-radius: 12px;
@@ -191,7 +191,7 @@ body {
   height: 24px;
 }
 
-/* Mobile Responsive */
+
 @media screen and (max-width: 375px) {
   .menu__header {
     padding: 16px;
