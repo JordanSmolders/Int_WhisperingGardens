@@ -81,9 +81,14 @@ const isWithinBounds = ([lat, lng], bounds) => {
 
 const initializeMap = (containerId) => {
   const center = getBoundsCenter(gardenBounds);
-  const map = L.map(containerId, { zoomControl: false }).setView(center, zoomLevel);
+const map = L.map(containerId, {
+  zoomControl: false,
+  minZoom: 19,   
+  maxZoom: 22
+}).setView(center, zoomLevel);
   L.control.zoom({ position: "bottomright" }).addTo(map);
   L.imageOverlay(imageUrl, gardenBounds).addTo(map);
+  
   return map;
 };
 

@@ -270,6 +270,9 @@
 }
 
 .submit-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 5%;
   font-family: "GT Walsheim Medium";
   background-color: var(--color-green);
   color: var(--color-white);
