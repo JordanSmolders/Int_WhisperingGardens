@@ -1,0 +1,496 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #FFBF50;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scanner {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.scanner__header {
+  background: #FFBF50;
+  padding: 20px;
+  position: relative;
+}
+
+.scanner__title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #000;
+  line-height: 1.1;
+  margin-bottom: 15px;
+}
+
+.scanner__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Instructions */
+.scanner__instructions {
+  font-size: 16px;
+  color: #000;
+  line-height: 1.4;
+  max-width: 280px;
+  padding: 0 20px 30px 20px;
+}
+
+.scanner__text {
+  font-size: 16px;
+  line-height: 1.4;
+  color: #000;
+  max-width: 300px;
+}
+
+/* Camera Container - Much smaller like in the design */
+.scanner__camera-container {
+  flex: 1;
+  position: relative;
+  background: #000;
+  margin: 0 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scanner__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Permission Dialog */
+.scanner__permission {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  z-index: 100;
+}
+
+.scanner__permission-content {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 280px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.scanner__permission-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #000;
+  line-height: 1.3;
+}
+
+.scanner__permission-text {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+.scanner__permission-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.scanner__permission-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.scanner__permission-button--deny {
+  background: #666;
+  color: white;
+}
+
+.scanner__permission-button--allow {
+  background: white;
+  color: #000;
+}
+
+.scanner__permission-button:hover {
+  transform: translateY(-1px);
+}
+
+/* Scanner Overlay - White corners like in design */
+.scanner__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.scanner__corners {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 60%;
+}
+
+.scanner__corner {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 4px solid white;
+}
+
+.scanner__corner--top-left {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.scanner__corner--top-right {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+.scanner__corner--bottom-left {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+}
+
+.scanner__corner--bottom-right {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+.scanner__line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #007bff;
+  transform: translateY(-50%);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* QR Codes Section */
+.scanner__qr-codes {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.scanner__qr-codes h3 {
+  margin-bottom: 20px;
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.scanner__qr-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.scanner__qr-item {
+  text-align: center;
+}
+
+.scanner__qr-item canvas {
+  border: 3px solid #000;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  background: white;
+}
+
+.scanner__qr-item p {
+  font-size: 14px;
+  color: #000;
+  font-weight: bold;
+}
+
+/* AR Overlay Styles */
+.ar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.ar-content {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.ar-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 35px;
+  height: 35px;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.scanner__ar-toggle {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(244, 162, 97, 0.95);
+  color: #000;
+  border: 2px solid #000;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 25;
+  transition: all 0.3s ease;
+  display: none;
+  pointer-events: all;
+}
+
+.scanner__ar-toggle:hover {
+  transform: translateX(-50%) scale(1.05);
+  background: #f4a261;
+}
+
+/* AR Plant Card Styles */
+.ar-plant-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 25px;
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.ar-plant-card__header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ar-plant-card__icon {
+  font-size: 50px;
+  text-align: center;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.ar-plant-card__title {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+.ar-plant-card__subtitle {
+  font-size: 16px;
+  text-align: center;
+  color: #7f8c8d;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.ar-plant-card__section {
+  margin-bottom: 20px;
+}
+
+.ar-plant-card__section-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #34495e;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ar-plant-card__list {
+  list-style: none;
+  padding: 0;
+}
+
+.ar-plant-card__list-item {
+  padding: 6px 0;
+  font-size: 14px;
+  color: #2c3e50;
+  position: relative;
+  padding-left: 20px;
+}
+
+.ar-plant-card__list-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.ar-plant-card__description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #34495e;
+  text-align: center;
+  font-style: italic;
+  padding: 15px;
+  background: rgba(52, 73, 94, 0.05);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.ar-plant-card__ritual {
+  background: linear-gradient(135deg, rgba(39, 174, 96, 0.1), rgba(46, 204, 113, 0.1));
+  border-radius: 12px;
+  padding: 20px;
+  border: 2px solid rgba(39, 174, 96, 0.2);
+}
+
+.ar-plant-card__ritual-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #27ae60;
+}
+
+.ar-plant-card__ritual-steps {
+  list-style: none;
+  counter-reset: step-counter;
+}
+
+.ar-plant-card__ritual-step {
+  counter-increment: step-counter;
+  padding: 8px 0;
+  position: relative;
+  padding-left: 30px;
+  font-size: 14px;
+  color: #2c3e50;
+}
+
+.ar-plant-card__ritual-step::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  background: #27ae60;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Plant-specific AR colors */
+.ar-plant-card--chamomile {
+  background: linear-gradient(135deg, rgba(255, 223, 0, 0.15), rgba(255, 165, 0, 0.15));
+  border-color: rgba(255, 193, 7, 0.3);
+}
+
+.ar-plant-card--mint {
+  background: linear-gradient(135deg, rgba(0, 255, 127, 0.15), rgba(46, 204, 113, 0.15));
+  border-color: rgba(46, 204, 113, 0.3);
+}
+
+.ar-plant-card--lavender {
+  background: linear-gradient(135deg, rgba(147, 112, 219, 0.15), rgba(138, 43, 226, 0.15));
+  border-color: rgba(147, 112, 219, 0.3);
+}
+
+/* Animations */
+@keyframes ar-entrance {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateZ(-100px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateZ(0) scale(1);
+  }
+}
+
+.ar-plant-card {
+  animation: ar-entrance 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.scanner__corner {
+  animation: pulse 2s ease-in-out infinite;
+}
