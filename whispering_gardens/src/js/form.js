@@ -4,6 +4,7 @@
   const progressSteps = document.querySelectorAll(".progress-step")
   const prevBtn = document.querySelector("#prevBtn")
   const nextBtn = document.querySelector("#nextBtn")
+  const submitBtn = document.querySelector("#submitBtn")
   const closeBtn = document.querySelector("#closeForm")
   const form = document.querySelector("#multiStepForm")
   const optionBtns = document.querySelectorAll(".option-btn")
@@ -51,7 +52,18 @@ function updateStepDisplay() {
   })
 
   toggleVisibility(prevBtn, currentStep !== 1)
-  toggleVisibility(nextBtn, currentStep !== totalSteps)
+  
+  if (currentStep === totalSteps) {
+    toggleVisibility(nextBtn, false)
+    toggleDisplay(submitBtn, true)
+  } else {
+    toggleVisibility(nextBtn, true)
+    toggleDisplay(submitBtn, false)
+  }
+}
+
+function toggleDisplay(e,show){
+  e.style.display = show ? "block" : 'none';
 }
 
 function toggleVisibility(e, show) {

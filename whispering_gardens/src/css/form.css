@@ -268,3 +268,13 @@
 .hidden {
   display: none;
 }
+
+.submit-btn {
+  font-family: "GT Walsheim Medium";
+  background-color: var(--color-green);
+  color: var(--color-white);
+  border: none;
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: 600;
+}
