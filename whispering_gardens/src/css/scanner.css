@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "GT Walsheim Regular";
   background: #FFBF50;
   height: 100vh;
   overflow: hidden;
@@ -40,7 +40,7 @@ body {
   height: 40px;
   background: white;
   border: none;
-  border-radius: 50%;
+  
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
@@ -131,7 +131,7 @@ body {
 .scanner__permission-button {
   padding: 10px 20px;
   border: none;
-  border-radius: 8px;
+ 
   cursor: pointer;
   font-size: 14px;
 }

@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Arial", sans-serif;
+  font-family: "GT Walsheim Regular";
   background:  #FFBF50;
   min-height: 100vh;
   overflow-x: hidden;
@@ -162,7 +162,7 @@ body {
   padding: 15px 40px;
   font-size: 18px;
   font-weight: bold;
-  border-radius: 8px;
+  
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
@@ -199,7 +199,6 @@ body {
   color: white;
   border: 2px solid white;
   padding: 10px 20px;
-  border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
   transition: all 0.3s ease;
