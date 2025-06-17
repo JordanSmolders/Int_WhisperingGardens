@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,31 +10,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
 
 </head>
+
 <body>
     <div class="zone">
         <div class="zone__hero">
             <button class="zone__close-btn" onclick="closeZone()">
-                <span class="zone__close-icon">×</span>
+                <span class="zone__close-icon"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="54"
+                        viewBox="0 0 54 54" fill="none">
+                        <circle cx="27" cy="27" r="27" fill="white" />
+                        <path
+                            d="M30.3226 16.0002L37.6885 16.0002L29.9134 27.2637L23.3659 27.2637L16 16.0002H22.9567L26.6396 25.1987L30.3226 16.0002Z"
+                            fill="black" />
+                        <path
+                            d="M30.3226 37.5271H37.6885L29.9134 26.2637L23.3659 26.2637L16 37.5271H22.9567L26.6396 28.3286L30.3226 37.5271Z"
+                            fill="black" />
+                    </svg></span>
             </button>
             <div class="zone__hero-image"></div>
         </div>
         <div class="zone__content">
             <div class="zone__brand">
                 <div class="zone__logo">
-                    <svg class="zone__logo-icon" viewBox="0 0 24 24" fill="none">
-                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                        <path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="2"/>
-                    </svg>
+                    <img src="src/assets/Group 41.png" alt="">
                 </div>
                 <h1 class="zone__title">PULSE</h1>
             </div>
 
             <p class="zone__description">
-                In this zone, you step into the stillness. 
-                Guided by scent, movement, and 
-                sound, you're invited to slow down, 
-                breathe deeply, and reconnect with 
-                your senses through the simulated 
+                In this zone, you step into the stillness.
+                Guided by scent, movement, and
+                sound, you're invited to slow down,
+                breathe deeply, and reconnect with
+                your senses through the simulated
                 healing effects of medicinal plants.
             </p>
 
@@ -47,7 +55,9 @@
                     <h3>See what's coming up at Abby</h3>
                 </div>
                 <button class="zone__calendar-btn" onclick="viewCalendar()">
-                    View calendar →
+                    View calendar <svg xmlns="http://www.w3.org/2000/svg" width="15" height="12" viewBox="0 0 15 12" fill="none">
+<path d="M0.5 4.07547L0.5 -2.70245e-07L14.5 4.30189L14.5 7.92453L0.499999 12L0.499999 8.15094L11.9333 6.11321L0.5 4.07547Z" fill="white"/>
+</svg>
                 </button>
             </div>
         </div>
@@ -55,4 +65,5 @@
 
     <script src="src/js/zone.js"></script>
 </body>
+
 </html>

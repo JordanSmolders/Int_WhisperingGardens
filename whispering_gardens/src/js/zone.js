@@ -113,6 +113,8 @@ function startPulse() {
 
 function viewCalendar() {
   console.log("Opening calendar")
+   window.open("events.html");
+
 
 }
 

@@ -25,7 +25,7 @@ class WordInput {
     bindEvents() {
         document.getElementById('wordBackBtn').addEventListener('click', () => {
             this.saveDraft();
-            window.location.href = 'menu.html';
+            window.location.href = 'signal_menu.html';
         });
         
         document.getElementById('wordClearBtn').addEventListener('click', () => {
@@ -142,7 +142,7 @@ class WordInput {
             opacity: 0.8,
             ease: 'power2.out',
             onComplete: () => {
-                window.location.href = 'success_signal.html';
+                window.location.href = 'succes_signal.html';
             }
         });
     }

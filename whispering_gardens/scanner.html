@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zone83 - Scanner</title>
+    <title>Thread Scanner</title>
     <link rel="stylesheet" href="src/css/style.css">
     <link rel="stylesheet" href="src/css/scanner.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://unpkg.com/qr-scanner@1.4.2/qr-scanner.umd.min.js"></script>
 </head>
+
 <body>
     <div class="scanner">
         <div class="scanner__header">
@@ -16,7 +18,16 @@
             <p class="scanner__instructions">
                 Scan the plant you want to explore, point the camera at the plant until the blue line appears.
             </p>
-            <button class="scanner__close" id="closeButton">×</button>
+            <button class="scanner__close" id="closeButton"><svg xmlns="http://www.w3.org/2000/svg" width="54"
+                    height="54" viewBox="0 0 54 54" fill="none">
+                    <circle cx="27" cy="27" r="27" fill="white" />
+                    <path
+                        d="M30.3226 16.0002L37.6885 16.0002L29.9134 27.2637L23.3659 27.2637L16 16.0002H22.9567L26.6396 25.1987L30.3226 16.0002Z"
+                        fill="black" />
+                    <path
+                        d="M30.3226 37.5271H37.6885L29.9134 26.2637L23.3659 26.2637L16 37.5271H22.9567L26.6396 28.3286L30.3226 37.5271Z"
+                        fill="black" />
+                </svg></button>
         </div>
 
         <div class="scanner__camera-container">
@@ -24,13 +35,15 @@
                 <h3>Abby would like to access your camera</h3>
                 <p>Please give us access to your camera</p>
                 <div class="scanner__permission-buttons">
-                    <button class="scanner__permission-button scanner__permission-button--deny" id="denyButton">Don't allow</button>
-                    <button class="scanner__permission-button scanner__permission-button--allow" id="allowButton">Allow</button>
+                    <button class="scanner__permission-button scanner__permission-button--deny" id="denyButton">Don't
+                        allow</button>
+                    <button class="scanner__permission-button scanner__permission-button--allow"
+                        id="allowButton">Allow</button>
                 </div>
             </div>
 
             <video class="scanner__video" id="videoElement" autoplay playsinline muted style="display: none;"></video>
-            
+
             <div class="scanner__overlay">
                 <div class="scanner__corners">
                     <div class="scanner__corner scanner__corner--top-left"></div>
@@ -45,4 +58,5 @@
 
     <script src="src/js/scanner.js"></script>
 </body>
+
 </html>

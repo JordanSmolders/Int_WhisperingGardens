@@ -20,7 +20,7 @@ body {
 }
 
 .scanner__header {
-  background: #f4a261;
+  background: #FFBF50;
   padding: 20px;
   position: relative;
   z-index: 10;
@@ -197,13 +197,13 @@ body {
   opacity: 1;
   transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) scale(1) translateZ(0px);
   pointer-events: all;
-  filter: brightness(1) contrast(1);
+
 }
 
 .ar-plant-marker.ar-dematerializing {
-  opacity: 0;
+  opacity: 1;
   transform: perspective(1000px) rotateX(-15deg) rotateY(10deg) scale(0.2) translateZ(-200px);
-  filter: brightness(2) contrast(0.5);
+  
 }
 .ar-ground-shadow {
   position: absolute;
@@ -297,7 +297,7 @@ body {
   display: flex;
   flex-direction: column;
   transition: opacity 0.2s ease-out, pointer-events 0.2s ease-out, filter 0.2s ease-out;
-  will-change: opacity, filter;
+ 
 }
 
 .ar-scrollable-content {
@@ -474,11 +474,11 @@ body {
 
 .ar-property-tag {
   background: linear-gradient(135deg, var(--plant-color, #27ae60), rgba(255, 255, 255, 0.2));
-  color: white;
+  color: grey;
   padding: 4px 8px;
   border-radius: 12px;
   font-size: 11px;
-  font-weight: bold;
+  
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
   animation: tag-shimmer 3s ease-in-out infinite;

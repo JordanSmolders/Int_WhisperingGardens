@@ -28,8 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
         y: 30, 
         opacity: 0 
     });
+    
+    
 
- 
+  document.getElementById('footerBtn').addEventListener('click', () => {
+        window.location.href = 'events.html';
+    });
     document.getElementById('startSignalBtn').addEventListener('click', () => {
         window.location.href = 'signal_menu.html';
     });

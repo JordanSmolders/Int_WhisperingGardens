@@ -12,7 +12,7 @@ body {
 }
 
 .header {
-  background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+  background: linear-gradient(135deg, #BB7CD2 0%, #BB7CD2 100%);
   color: white;
   padding: 20px;
   min-height: 200px;
@@ -102,7 +102,7 @@ body {
   opacity: 1;
   transform: scale(1);
   box-shadow: 0 4px 16px rgba(236, 72, 153, 0.2);
-  border: 2px solid #ec4899;
+  border: 2px solid #BB7CD2;
 }
 
 .calm__sense-icon {
@@ -114,7 +114,7 @@ body {
 .calm__sense-title {
   font-size: 20px;
   font-weight: 600;
-  color: #ec4899;
+  color: #BB7CD2;
   margin-bottom: 8px;
 }
 
@@ -141,7 +141,7 @@ body {
 
 .calm__progress-fill {
   height: 100%;
-  background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+  background: linear-gradient(135deg, #BB7CD2 0%, #BB7CD2 100%);
   width: 20%;
   border-radius: 4px;
   transition: width 0.5s ease;
@@ -161,7 +161,7 @@ body {
 }
 
 .calm__btn {
-  background: #ec4899;
+  background: #00A468;
   color: white;
   border: none;
   padding: 12px 24px;
@@ -173,16 +173,16 @@ body {
 }
 
 .calm__btn:hover {
-  background: #be185d;
+  background: #00A468;
   transform: translateY(-2px);
 }
 
 .calm__btn--reset {
-  background: #6b7280;
+  background: #000;
 }
 
 .calm__btn--reset:hover {
-  background: #4b5563;
+  background: #000;
 }
 
 .calm__btn:disabled {
