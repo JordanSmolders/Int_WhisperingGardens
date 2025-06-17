@@ -125,5 +125,10 @@ document.addEventListener("DOMContentLoaded", () => {
         ease: "power2.out",
       })
     })
+    
   }
+  document.getElementById('footerButton').addEventListener('click', () => {
+        window.location.href = 'events.html';
+    });
+  
 })

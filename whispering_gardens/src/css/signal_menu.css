@@ -20,7 +20,7 @@ body {
 
 
 .menu__header {
-  background: linear-gradient(135deg, #b794f6 0%, #9f7aea 100%);
+  background: linear-gradient(135deg, #FF5F00 0%, #FF5F00 100%);
   color: white;
   padding: 20px;
   position: relative;
@@ -124,22 +124,26 @@ border-radius: 50%;
   position: relative;
 }
 
-.activity__image--breathing {
-  background-image: url(../assets/deepbreath.png);
+.activity__image--dance {
+  background-image: url(../assets/Screenshot2025-06-07.png);
 
 }
 
 
 
-.activity__image--movement {
-  background-image: url(../assets/slowmovement.png);
+.activity__image--visual {
+  background-image: url(../assets/image\ 33.png);
 }
 
 
 
-.activity__image--calm {
-  background-image: url(../assets/stepcalm.png);
+.activity__image--word {
+  background-image: url(../assets/image\ 36.png);
 }
+.activity__image--voice {
+  background-image: url(../assets/image\ 37.png);
+}
+
 
 
 .activity__content {
@@ -151,7 +155,7 @@ border-radius: 50%;
 .activity__border {
   width: 6px;
   height: 80px;
-  background: linear-gradient(135deg, #b794f6 0%, #9f7aea 100%);
+  background: linear-gradient(135deg, #FF5F00 0%, #FF5F00 100%);
   flex-shrink: 0;
 }
 
@@ -163,7 +167,7 @@ border-radius: 50%;
 .activity__title {
   font-size: 20px;
   font-weight: 600;
-  color: #b794f6;
+  color: #FF5F00;
   margin-bottom: 8px;
 }
 

@@ -1,91 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIGNAL - Zone 3 Menu</title>
     <link rel="stylesheet" href="src/css/style.css">
-    <link rel="stylesheet" href="src/css/signal.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="src/css/signal_menu.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
 </head>
+
 <body>
-    <div class="screen screen--menu">
-        <div class="menu">
-            <div class="menu__header">
-                <div class="menu__title-section">
-                    <h2 class="menu__zone">Zone 3</h2>
-                    <h1 class="menu__title">SIGNAL</h1>
-                    <p class="menu__description">
-                        Choose an activity below to express yourself. Your input will be transformed into a visual signal inside the statue.
-                    </p>
+    <header class="menu__header">
+        <button class="menu__close-btn" onclick="closeMenu()">
+            <span class="menu__close-icon"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="54"
+                    viewBox="0 0 54 54" fill="none">
+                    <circle cx="27" cy="27" r="27" fill="white" />
+                    <path
+                        d="M30.3226 16.0002L37.6885 16.0002L29.9134 27.2637L23.3659 27.2637L16 16.0002H22.9567L26.6396 25.1987L30.3226 16.0002Z"
+                        fill="black" />
+                    <path
+                        d="M30.3226 37.5271H37.6885L29.9134 26.2637L23.3659 26.2637L16 37.5271H22.9567L26.6396 28.3286L30.3226 37.5271Z"
+                        fill="black" />
+                </svg></span>
+        </button>
+        <div class="menu__header-content">
+            <p class="menu__zone-label">Zone 2</p>
+            <h1 class="menu__title">PULSE</h1>
+            <p class="menu__description">
+                Take a deep breath and settle in.<br>
+                Choose a gentle activity below to help<br>
+                you unwind and reconnect with yourself.
+            </p>
+        </div>
+    </header>
+
+    <main class="menu__main">
+        <div class="menu__activities">
+            <div class="activity" onclick="selectActivity('dance')">
+                <div class="activity__image activity__image--dance"></div>
+                <div class="activity__content">
+                    <div class="activity__border"></div>
+                    <div class="activity__text">
+                        <h3 class="activity__title">Dance</h3>
+                        <p class="activity__description">
+                            Record a short movement or pose using your body.
+                        </p>
+                    </div>
+                    <div class="activity__arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 30 28" fill="none">
+                            <path
+                                d="M1.5299e-06 9.65039L2.3167e-06 0.650388L30 10.1504L30 18.1504L0 27.1504L7.43094e-07 18.6504L24.5 14.1504L1.5299e-06 9.65039Z"
+                                fill="#FF5F00" />
+                        </svg>
+                    </div>
                 </div>
-                <button class="menu__close" id="menuCloseBtn">×</button>
             </div>
-            
-            <div class="menu__content">
-                <div class="menu__artist-image">
-                    <img src="/placeholder.svg?height=200&width=300" alt="Artist painting" class="menu__artist-img">
+            <div class="activity" onclick="selectActivity('visual')">
+                <div class="activity__image activity__image--visual"></div>
+                <div class="activity__content">
+                    <div class="activity__border"></div>
+                    <div class="activity__text">
+                        <h3 class="activity__title">Slow Movement</h3>
+                        <p class="activity__description">
+                            Snap a photo of yourself, surroundings, something meaningful, or a found object.
+                        </p>
+                    </div>
+                    <div class="activity__arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 30 28" fill="none">
+                            <path
+                                d="M1.5299e-06 9.65039L2.3167e-06 0.650388L30 10.1504L30 18.1504L0 27.1504L7.43094e-07 18.6504L24.5 14.1504L1.5299e-06 9.65039Z"
+                                fill="#FF5F00" />
+                        </svg>
+                    </div>
                 </div>
-                
-                <div class="menu__options">
-                    <div class="menu__option" data-option="dance">
-                        <div class="menu__option-content">
-                            <h3 class="menu__option-title">Dance</h3>
-                            <p class="menu__option-description">
-                                Record a short movement or pose using your body
-                            </p>
-                        </div>
-                        <div class="menu__option-arrow">></div>
+            </div>
+
+            <div class="activity" onclick="selectActivity('word')">
+                <div class="activity__image activity__image--word"></div>
+                <div class="activity__content">
+                    <div class="activity__border"></div>
+                    <div class="activity__text">
+                        <h3 class="activity__title">Step Calm</h3>
+                        <p class="activity__description">
+                            Write a message, memory, or poem.
+                        </p>
                     </div>
-                    
-                    <div class="menu__option-image">
-                        <img src="/placeholder.svg?height=150&width=300" alt="Person taking selfie" class="menu__option-img">
+                    <div class="activity__arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 30 28" fill="none">
+                            <path
+                                d="M1.5299e-06 9.65039L2.3167e-06 0.650388L30 10.1504L30 18.1504L0 27.1504L7.43094e-07 18.6504L24.5 14.1504L1.5299e-06 9.65039Z"
+                                fill="#FF5F00" />
+                        </svg>
                     </div>
-                    
-                    <div class="menu__option" data-option="visual">
-                        <div class="menu__option-content">
-                            <h3 class="menu__option-title">Visual</h3>
-                            <p class="menu__option-description">
-                                Snap a photo of yourself, surroundings, something meaningful, or a found object.
-                            </p>
-                        </div>
-                        <div class="menu__option-arrow">></div>
+                </div>
+            </div>
+            <div class="activity" onclick="selectActivity('voice')">
+                <div class="activity__image activity__image--voice"></div>
+                <div class="activity__content">
+                    <div class="activity__border"></div>
+                    <div class="activity__text">
+                        <h3 class="activity__title">Step Calm</h3>
+                        <p class="activity__description">
+                            Record a sound or sentence that reflects how you feel.
+                        </p>
                     </div>
-                    
-                    <div class="menu__option-image menu__option-image--word">
-                        <div class="menu__word-bubble">
-                            <p class="menu__word-text">MAYBE I LIED WHEN I SAID I WAS OK.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="menu__option" data-option="word">
-                        <div class="menu__option-content">
-                            <h3 class="menu__option-title">Word</h3>
-                            <p class="menu__option-description">
-                                Write a message, memory, or poem.
-                            </p>
-                        </div>
-                        <div class="menu__option-arrow">></div>
-                    </div>
-                    
-                    <div class="menu__option-image">
-                        <img src="/placeholder.svg?height=150&width=300" alt="Close-up of lips" class="menu__option-img">
-                    </div>
-                    
-                    <div class="menu__option" data-option="voice">
-                        <div class="menu__option-content">
-                            <h3 class="menu__option-title">Voice</h3>
-                            <p class="menu__option-description">
-                                Record a sound or sentence that reflects how you feel.
-                            </p>
-                        </div>
-                        <div class="menu__option-arrow">></div>
+                    <div class="activity__arrow">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 30 28" fill="none">
+                            <path
+                                d="M1.5299e-06 9.65039L2.3167e-06 0.650388L30 10.1504L30 18.1504L0 27.1504L7.43094e-07 18.6504L24.5 14.1504L1.5299e-06 9.65039Z"
+                                fill="#FF5F00" />
+                        </svg>
                     </div>
                 </div>
             </div>
         </div>
+    </main>
+    </div>
     </div>
 
     <script src="src/js/signal_menu.js"></script>
 </body>
+
 </html>

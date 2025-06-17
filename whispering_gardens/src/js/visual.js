@@ -21,7 +21,7 @@ class VisualCapture {
     bindEvents() {
         document.getElementById('visualBackBtn').addEventListener('click', () => {
             this.stopCamera();
-            window.location.href = 'menu.html';
+            window.location.href = 'signal_menu.html';
         });
         
         document.getElementById('visualCaptureBtn').addEventListener('click', () => {
@@ -99,7 +99,7 @@ class VisualCapture {
             return;
         }
         
-        window.location.href = 'success_signal.html';
+        window.location.href = 'succes_signal.html';
     }
     
     stopCamera() {

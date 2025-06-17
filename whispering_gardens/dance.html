@@ -6,14 +6,16 @@
     <title>SIGNAL - Let's Dance</title>
     <link rel="stylesheet" href="src/css/style.css">
     <link rel="stylesheet" href="src/css/signal.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
 </head>
 <body>
+    <!-- Dance Screen -->
     <div class="screen screen--dance">
         <div class="dance">
             <div class="dance__header">
                 <button class="dance__back" id="danceBackBtn">
-                    < Back to Signal
+                    &lt; Back to Signal
                 </button>
             </div>
             
@@ -59,6 +61,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Upload Confirmation Modal -->
     <div class="modal modal--hidden" id="uploadModal">
         <div class="modal__content">
             <h3 class="modal__title">Ready to share your unique signal?</h3>
@@ -76,6 +80,7 @@
         </div>
     </div>
 
+    <!-- Discard Confirmation Modal -->
     <div class="modal modal--hidden" id="discardModal">
         <div class="modal__content">
             <h3 class="modal__title">Discard the last clip</h3>

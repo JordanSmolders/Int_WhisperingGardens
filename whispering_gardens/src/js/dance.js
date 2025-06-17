@@ -1,4 +1,4 @@
-
+// Dance Page JavaScript
 class DanceRecorder {
     constructor() {
         this.mediaRecorder = null;
@@ -10,6 +10,8 @@ class DanceRecorder {
         this.facingMode = 'user';
         this.stream = null;
         this.userData = JSON.parse(localStorage.getItem('signalUserData')) || { dance: [] };
+        this.recordedVideoBlob = null;
+        this.isInPreviewMode = false;
         
         this.init();
     }
@@ -18,7 +20,7 @@ class DanceRecorder {
         this.bindEvents();
         this.initCamera();
         
-        
+        // GSAP animations
         gsap.from('.dance__title', { duration: 0.8, y: -30, opacity: 0 });
         gsap.from('.dance__description', { duration: 0.8, y: 20, opacity: 0, delay: 0.2 });
         gsap.from('.dance__video-container', { duration: 1, scale: 0.9, opacity: 0, delay: 0.4 });
@@ -27,7 +29,7 @@ class DanceRecorder {
     bindEvents() {
         document.getElementById('danceBackBtn').addEventListener('click', () => {
             this.stopCamera();
-            window.location.href = 'menu.html';
+            window.location.href = 'signal_menu.html';
         });
         
         document.getElementById('danceRecordBtn').addEventListener('click', () => {
@@ -39,7 +41,11 @@ class DanceRecorder {
         });
         
         document.getElementById('danceDiscardBtn').addEventListener('click', () => {
-            this.showModal('discard');
+            if (this.isInPreviewMode) {
+                this.exitPreviewMode();
+            } else {
+                this.showModal('discard');
+            }
         });
         
         document.getElementById('danceRetakeBtn').addEventListener('click', () => {
@@ -47,33 +53,39 @@ class DanceRecorder {
         });
         
         document.getElementById('danceUploadBtn').addEventListener('click', () => {
-            this.showModal('upload');
+            if (this.isInPreviewMode) {
+                this.confirmVideo();
+            } else {
+                this.showModal('upload');
+            }
         });
         
-      
+        // Timer buttons
         document.querySelectorAll('.dance__timer-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                document.querySelectorAll('.dance__timer-btn').forEach(b => 
-                    b.classList.remove('dance__timer-btn--active'));
-                e.target.classList.add('dance__timer-btn--active');
-                this.selectedDuration = parseInt(e.target.dataset.time);
+                if (!this.isRecording) {
+                    document.querySelectorAll('.dance__timer-btn').forEach(b => 
+                        b.classList.remove('dance__timer-btn--active'));
+                    e.target.classList.add('dance__timer-btn--active');
+                    this.selectedDuration = parseInt(e.target.dataset.time);
+                }
             });
         });
         
-       
-        document.getElementById('modalCancelBtn').addEventListener('click', () => {
+        // Modal events
+        document.getElementById('modalCancelBtn')?.addEventListener('click', () => {
             this.hideModal();
         });
         
-        document.getElementById('modalUploadBtn').addEventListener('click', () => {
+        document.getElementById('modalUploadBtn')?.addEventListener('click', () => {
             this.confirmUpload();
         });
         
-        document.getElementById('discardCancelBtn').addEventListener('click', () => {
+        document.getElementById('discardCancelBtn')?.addEventListener('click', () => {
             this.hideModal();
         });
         
-        document.getElementById('discardConfirmBtn').addEventListener('click', () => {
+        document.getElementById('discardConfirmBtn')?.addEventListener('click', () => {
             this.confirmDiscard();
         });
     }
@@ -134,6 +146,12 @@ class DanceRecorder {
         }, 1000);
         
         gsap.to('.dance__timer-controls', { duration: 0.3, opacity: 0.5 });
+        
+        // Disable timer buttons during recording
+        document.querySelectorAll('.dance__timer-btn').forEach(btn => {
+            btn.disabled = true;
+            btn.style.opacity = '0.5';
+        });
     }
     
     stopRecording() {
@@ -150,14 +168,138 @@ class DanceRecorder {
         
         document.getElementById('danceRecordBtn').classList.remove('recording');
         gsap.to('.dance__timer-controls', { duration: 0.3, opacity: 1 });
+        
+        // Re-enable timer buttons
+        document.querySelectorAll('.dance__timer-btn').forEach(btn => {
+            btn.disabled = false;
+            btn.style.opacity = '1';
+        });
     }
     
     processRecording() {
         const blob = new Blob(this.recordedChunks, { type: 'video/webm' });
+        this.recordedVideoBlob = blob;
         const videoUrl = URL.createObjectURL(blob);
         
+        // Enter preview mode
+        this.enterPreviewMode(videoUrl);
+    }
+    
+    enterPreviewMode(videoUrl) {
+        this.isInPreviewMode = true;
+        
+        const video = document.getElementById('danceVideo');
+        video.srcObject = null;
+        video.src = videoUrl;
+        video.controls = true;
+        video.loop = true;
+        
+        // Update UI for preview mode
+        this.updateUIForPreview();
+        
+        // Show preview overlay
+        this.showPreviewOverlay();
+    }
+    
+    showPreviewOverlay() {
+        // Create preview overlay if it doesn't exist
+        let overlay = document.querySelector('.dance__preview-overlay');
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'dance__preview-overlay';
+            overlay.innerHTML = `
+                <div class="dance__preview-text">Review your dance video</div>
+                <div class="dance__preview-controls">
+                    <button class="dance__preview-btn dance__preview-btn--retake" id="previewRetakeBtn">
+                        Retake
+                    </button>
+                    <button class="dance__preview-btn dance__preview-btn--confirm" id="previewConfirmBtn">
+                        Looks good!
+                    </button>
+                </div>
+            `;
+            document.querySelector('.dance__video-container').appendChild(overlay);
+            
+            // Bind preview overlay events
+            document.getElementById('previewRetakeBtn').addEventListener('click', () => {
+                this.exitPreviewMode();
+            });
+            
+            document.getElementById('previewConfirmBtn').addEventListener('click', () => {
+                this.confirmVideo();
+            });
+        }
+        
+        // Animate overlay in
+        gsap.from(overlay, {
+            duration: 0.5,
+            opacity: 0,
+            y: 30,
+            ease: 'power2.out'
+        });
+        
+        overlay.style.display = 'flex';
+    }
+    
+    hidePreviewOverlay() {
+        const overlay = document.querySelector('.dance__preview-overlay');
+        if (overlay) {
+            overlay.style.display = 'none';
+        }
+    }
+    
+    updateUIForPreview() {
+        // Update button text and functionality
+        const uploadBtn = document.getElementById('danceUploadBtn');
+        const retakeBtn = document.getElementById('danceRetakeBtn');
+        const discardBtn = document.getElementById('danceDiscardBtn');
+        
+        uploadBtn.textContent = 'Upload';
+        retakeBtn.textContent = 'Retake';
+        discardBtn.innerHTML = '×';
+        
+        // Hide recording controls
+        gsap.to('.dance__controls-overlay', { duration: 0.3, opacity: 0 });
+    }
+    
+    exitPreviewMode() {
+        this.isInPreviewMode = false;
+        this.recordedVideoBlob = null;
+        
+        // Reset video to live stream
+        const video = document.getElementById('danceVideo');
+        video.controls = false;
+        video.src = '';
+        video.srcObject = this.stream;
+        
+        // Hide preview overlay
+        this.hidePreviewOverlay();
+        
+        // Show recording controls
+        gsap.to('.dance__controls-overlay', { duration: 0.3, opacity: 1 });
+        
+        // Reset timer
+        this.recordingTime = 0;
+        this.updateTimer();
+        
+        // Reset UI
+        const uploadBtn = document.getElementById('danceUploadBtn');
+        const retakeBtn = document.getElementById('danceRetakeBtn');
+        
+        uploadBtn.textContent = 'Upload';
+        retakeBtn.textContent = 'Retake';
+    }
+    
+    confirmVideo() {
+        if (!this.recordedVideoBlob) {
+            alert('No video to upload. Please record something first.');
+            return;
+        }
+        
+        // Save the video
+        const videoUrl = URL.createObjectURL(this.recordedVideoBlob);
         this.userData.dance.push({
-            blob: blob,
+            blob: this.recordedVideoBlob,
             url: videoUrl,
             timestamp: new Date().toISOString(),
             duration: this.recordingTime
@@ -165,10 +307,16 @@ class DanceRecorder {
         
         this.saveUserData();
         
-        const video = document.getElementById('danceVideo');
-        video.srcObject = null;
-        video.src = videoUrl;
-        video.controls = true;
+        // Animate success and navigate
+        gsap.to('.dance', {
+            duration: 0.5,
+            scale: 0.95,
+            opacity: 0.8,
+            ease: 'power2.out',
+            onComplete: () => {
+                window.location.href = 'succes_signal.html';
+            }
+        });
     }
     
     updateTimer() {
@@ -179,6 +327,11 @@ class DanceRecorder {
     }
     
     async flipCamera() {
+        if (this.isRecording) {
+            alert('Cannot flip camera while recording.');
+            return;
+        }
+        
         this.facingMode = this.facingMode === 'user' ? 'environment' : 'user';
         
         if (this.stream) {
@@ -189,31 +342,33 @@ class DanceRecorder {
     }
     
     retake() {
-        if (this.userData.dance.length > 0) {
-            const lastRecording = this.userData.dance.pop();
-            URL.revokeObjectURL(lastRecording.url);
-            this.saveUserData();
+        if (this.isInPreviewMode) {
+            this.exitPreviewMode();
+        } else {
+            // Remove last recording if exists
+            if (this.userData.dance.length > 0) {
+                const lastRecording = this.userData.dance.pop();
+                URL.revokeObjectURL(lastRecording.url);
+                this.saveUserData();
+            }
+            
+            this.recordingTime = 0;
+            this.updateTimer();
         }
-        
-        const video = document.getElementById('danceVideo');
-        video.controls = false;
-        video.src = '';
-        video.srcObject = this.stream;
-        
-        this.recordingTime = 0;
-        this.updateTimer();
     }
     
     showModal(type) {
         const modal = document.getElementById(`${type}Modal`);
-        modal.classList.remove('modal--hidden');
-        
-        gsap.from(modal.querySelector('.modal__content'), {
-            duration: 0.3,
-            scale: 0.8,
-            opacity: 0,
-            ease: 'back.out(1.7)'
-        });
+        if (modal) {
+            modal.classList.remove('modal--hidden');
+            
+            gsap.from(modal.querySelector('.modal__content'), {
+                duration: 0.3,
+                scale: 0.8,
+                opacity: 0,
+                ease: 'back.out(1.7)'
+            });
+        }
     }
     
     hideModal() {
@@ -224,7 +379,11 @@ class DanceRecorder {
     
     confirmUpload() {
         this.hideModal();
-        window.location.href = 'success_signal.html';
+        if (this.isInPreviewMode) {
+            this.confirmVideo();
+        } else {
+            window.location.href = 'succes_signal.html';
+        }
     }
     
     confirmDiscard() {

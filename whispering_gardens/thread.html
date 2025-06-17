@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zone83 - Thread</title>
+    <title>Thread</title>
     <link rel="stylesheet" href="src/css/style.css">
     <link rel="stylesheet" href="src/css/threat.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
 </head>
+
 <body>
     <div class="app">
         <header class="header">
-            <button class="header__close" id="landingCloseBtn">×</button>
+            <button class="header__close" id="landingCloseBtn"><svg xmlns="http://www.w3.org/2000/svg" width="54"
+                    height="54" viewBox="0 0 54 54" fill="none">
+                    <circle cx="27" cy="27" r="27" fill="white" />
+                    <path
+                        d="M30.3226 16.0002L37.6885 16.0002L29.9134 27.2637L23.3659 27.2637L16 16.0002H22.9567L26.6396 25.1987L30.3226 16.0002Z"
+                        fill="black" />
+                    <path
+                        d="M30.3226 37.5271H37.6885L29.9134 26.2637L23.3659 26.2637L16 37.5271H22.9567L26.6396 28.3286L30.3226 37.5271Z"
+                        fill="black" />
+                </svg></button>
         </header>
 
         <main class="main">
             <div class="hero">
                 <div class="hero__icon">
-                    <div class="hero__eye">
-                        <div class="hero__pupil"></div>
-                    </div>
+                    <img src="src/assets/Group 27.png" alt="Thread">
                 </div>
-                
+
                 <h1 class="hero__title">THREAD</h1>
-                
+
                 <p class="hero__description">
-                    In this zone you explore medicinal plants and ancient herbal knowledge. 
-                    Scan the plants to learn about their properties, and use them in simple 
+                    In this zone you explore medicinal plants and ancient herbal knowledge.
+                    Scan the plants to learn about their properties, and use them in simple
                     rituals like making tea or creating scent pouches.
                 </p>
-                
+
                 <button class="hero__button" id="startButton">Start scanning</button>
             </div>
         </main>
@@ -38,11 +47,17 @@
         <footer class="footer">
             <div class="footer__content">
                 <p class="footer__text">See what's coming up at Abby</p>
-                <button class="footer__button">View calendar →</button>
+                <button class="footer__button" id="footerButton">View calendar <svg xmlns="http://www.w3.org/2000/svg" width="15"
+                        height="12" viewBox="0 0 15 12" fill="none">
+                        <path
+                            d="M0.5 4.07547L0.5 -2.70245e-07L14.5 4.30189L14.5 7.92453L0.499999 12L0.499999 8.15094L11.9333 6.11321L0.5 4.07547Z"
+                            fill="white" />
+                    </svg></button>
             </div>
         </footer>
     </div>
 
     <script src="src/js/threat.js"></script>
 </body>
+
 </html>

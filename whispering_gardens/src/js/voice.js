@@ -21,7 +21,7 @@ class VoiceRecorder {
     
     bindEvents() {
         document.getElementById('voiceBackBtn').addEventListener('click', () => {
-            window.location.href = 'menu.html';
+            window.location.href = 'signal_menu.html';
         });
         
         document.getElementById('voiceRecordBtn').addEventListener('click', () => {
@@ -154,7 +154,7 @@ class VoiceRecorder {
             return;
         }
         
-        window.location.href = 'success_signal.html';
+        window.location.href = 'succes_signal.html';
     }
     
     saveUserData() {
