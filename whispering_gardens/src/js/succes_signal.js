@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('successNavigateBtn').addEventListener('click', () => {
-        alert('Navigation to statue feature would be implemented here. This would typically open a map application or provide turn-by-turn directions to the museum statue location.');
+        window.location.href = 'home.html?tab=map';
     });
 
     const userData = JSON.parse(localStorage.getItem('signalUserData'));
