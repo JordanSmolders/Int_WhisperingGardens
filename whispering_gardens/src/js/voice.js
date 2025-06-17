@@ -29,11 +29,12 @@ class VoiceRecorder {
         });
         
         document.getElementById('voiceRetakeBtn').addEventListener('click', () => {
-            this.retake();
+           window.location.href = 'voice.html';
         });
         
         document.getElementById('voiceUploadBtn').addEventListener('click', () => {
-            this.upload();
+           
+            window.location.href = 'succes_signal.html';
         });
     }
     
@@ -137,25 +138,11 @@ class VoiceRecorder {
         });
     }
     
-    retake() {
-        if (this.userData.voice.length > 0) {
-            const lastRecording = this.userData.voice.pop();
-            URL.revokeObjectURL(lastRecording.url);
-            this.saveUserData();
-        }
+     
         
-        this.recordingTime = 0;
-        this.updateTimer();
-    }
+      
     
-    upload() {
-        if (this.userData.voice.length === 0) {
-            alert('No recording to upload. Please record something first.');
-            return;
-        }
-        
-        window.location.href = 'succes_signal.html';
-    }
+   
     
     saveUserData() {
         const dataToSave = {
