@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNAL - Let's Dance</title>
+    <link rel="stylesheet" href="src/css/signal.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <!-- Dance Screen -->
+    <div class="screen screen--dance">
+        <div class="dance">
+            <div class="dance__header">
+                <button class="dance__back" id="danceBackBtn">
+                    < Back to Signal
+                </button>
+            </div>
+            
+            <div class="dance__content">
+                <h1 class="dance__title">Let's Dance</h1>
+                <p class="dance__description">
+                    Record a short movement or pose using your body.
+                </p>
+                
+                <div class="dance__video-container">
+                    <video class="dance__video" id="danceVideo" autoplay muted playsinline></video>
+                    <canvas class="dance__canvas" id="danceCanvas"></canvas>
+                    
+                    <div class="dance__controls-overlay">
+                        <div class="dance__timer-controls">
+                            <button class="dance__timer-btn dance__timer-btn--active" data-time="10">10m</button>
+                            <button class="dance__timer-btn" data-time="60">60s</button>
+                            <button class="dance__timer-btn" data-time="15">15s</button>
+                        </div>
+                        
+                        <div class="dance__record-controls">
+                            <button class="dance__control-btn dance__control-btn--secondary" id="danceDiscardBtn">×</button>
+                            <button class="dance__control-btn dance__control-btn--record" id="danceRecordBtn">
+                                <div class="dance__record-circle"></div>
+                            </button>
+                            <button class="dance__control-btn dance__control-btn--secondary" id="danceFlipBtn">
+                                <div class="dance__flip-icon">⟲</div>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="dance__timer" id="danceTimer">00:07</div>
+                </div>
+                
+                <div class="dance__actions">
+                    <button class="dance__action-btn dance__action-btn--secondary" id="danceRetakeBtn">
+                        Retake
+                    </button>
+                    <button class="dance__action-btn dance__action-btn--primary" id="danceUploadBtn">
+                        Upload
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Confirmation Modal -->
+    <div class="modal modal--hidden" id="uploadModal">
+        <div class="modal__content">
+            <h3 class="modal__title">Ready to share your unique signal?</h3>
+            <p class="modal__description">
+                By uploading, your video will become part of the Abby's public statue.
+            </p>
+            <div class="modal__actions">
+                <button class="modal__btn modal__btn--secondary" id="modalCancelBtn">
+                    Cancel
+                </button>
+                <button class="modal__btn modal__btn--primary" id="modalUploadBtn">
+                    Yes, upload
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Discard Confirmation Modal -->
+    <div class="modal modal--hidden" id="discardModal">
+        <div class="modal__content">
+            <h3 class="modal__title">Discard the last clip</h3>
+            <div class="modal__actions">
+                <button class="modal__btn modal__btn--secondary" id="discardCancelBtn">
+                    Cancel
+                </button>
+                <button class="modal__btn modal__btn--primary" id="discardConfirmBtn">
+                    Discard
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/js/dance.js"></script>
+</body>
+</html>

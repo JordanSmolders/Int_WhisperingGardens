@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNAL - Zone 3 Menu</title>
+    <link rel="stylesheet" href="src/css/signal.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <!-- Menu Screen -->
+    <div class="screen screen--menu">
+        <div class="menu">
+            <div class="menu__header">
+                <div class="menu__title-section">
+                    <h2 class="menu__zone">Zone 3</h2>
+                    <h1 class="menu__title">SIGNAL</h1>
+                    <p class="menu__description">
+                        Choose an activity below to express yourself. Your input will be transformed into a visual signal inside the statue.
+                    </p>
+                </div>
+                <button class="menu__close" id="menuCloseBtn">×</button>
+            </div>
+            
+            <div class="menu__content">
+                <div class="menu__artist-image">
+                    <img src="/placeholder.svg?height=200&width=300" alt="Artist painting" class="menu__artist-img">
+                </div>
+                
+                <div class="menu__options">
+                    <div class="menu__option" data-option="dance">
+                        <div class="menu__option-content">
+                            <h3 class="menu__option-title">Dance</h3>
+                            <p class="menu__option-description">
+                                Record a short movement or pose using your body
+                            </p>
+                        </div>
+                        <div class="menu__option-arrow">></div>
+                    </div>
+                    
+                    <div class="menu__option-image">
+                        <img src="/placeholder.svg?height=150&width=300" alt="Person taking selfie" class="menu__option-img">
+                    </div>
+                    
+                    <div class="menu__option" data-option="visual">
+                        <div class="menu__option-content">
+                            <h3 class="menu__option-title">Visual</h3>
+                            <p class="menu__option-description">
+                                Snap a photo of yourself, surroundings, something meaningful, or a found object.
+                            </p>
+                        </div>
+                        <div class="menu__option-arrow">></div>
+                    </div>
+                    
+                    <div class="menu__option-image menu__option-image--word">
+                        <div class="menu__word-bubble">
+                            <p class="menu__word-text">MAYBE I LIED WHEN I SAID I WAS OK.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="menu__option" data-option="word">
+                        <div class="menu__option-content">
+                            <h3 class="menu__option-title">Word</h3>
+                            <p class="menu__option-description">
+                                Write a message, memory, or poem.
+                            </p>
+                        </div>
+                        <div class="menu__option-arrow">></div>
+                    </div>
+                    
+                    <div class="menu__option-image">
+                        <img src="/placeholder.svg?height=150&width=300" alt="Close-up of lips" class="menu__option-img">
+                    </div>
+                    
+                    <div class="menu__option" data-option="voice">
+                        <div class="menu__option-content">
+                            <h3 class="menu__option-title">Voice</h3>
+                            <p class="menu__option-description">
+                                Record a sound or sentence that reflects how you feel.
+                            </p>
+                        </div>
+                        <div class="menu__option-arrow">></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/js/signal_menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNAL - Visual</title>
+    <link rel="stylesheet" href="src/css/signal.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <!-- Visual Screen -->
+    <div class="screen screen--visual">
+        <div class="visual">
+            <div class="visual__header">
+                <button class="visual__back" id="visualBackBtn">
+                    < Back to Signal
+                </button>
+            </div>
+            
+            <div class="visual__content">
+                <h1 class="visual__title">Visual Signal</h1>
+                <p class="visual__description">
+                    Snap a photo of yourself, surroundings, something meaningful, or a found object.
+                </p>
+                
+                <div class="visual__camera-container">
+                    <video class="visual__video" id="visualVideo" autoplay muted playsinline></video>
+                    <canvas class="visual__canvas" id="visualCanvas"></canvas>
+                    
+                    <div class="visual__controls">
+                        <button class="visual__capture-btn" id="visualCaptureBtn">
+                            <div class="visual__capture-circle"></div>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="visual__actions">
+                    <button class="visual__action-btn visual__action-btn--secondary" id="visualRetakeBtn">
+                        Retake
+                    </button>
+                    <button class="visual__action-btn visual__action-btn--primary" id="visualUploadBtn">
+                        Upload
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/js/visual.js"></script>
+</body>
+</html>
