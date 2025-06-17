@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNAL - Word</title>
+    <link rel="stylesheet" href="src/css/signal.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <!-- Word Screen -->
+    <div class="screen screen--word">
+        <div class="word">
+            <div class="word__header">
+                <button class="word__back" id="wordBackBtn">
+                    < Back to Signal
+                </button>
+            </div>
+            
+            <div class="word__content">
+                <h1 class="word__title">Word Signal</h1>
+                <p class="word__description">
+                    Write a message, memory, or poem.
+                </p>
+                
+                <div class="word__input-container">
+                    <textarea class="word__textarea" id="wordTextarea" placeholder="Share your thoughts..."></textarea>
+                </div>
+                
+                <div class="word__actions">
+                    <button class="word__action-btn word__action-btn--secondary" id="wordClearBtn">
+                        Clear
+                    </button>
+                    <button class="word__action-btn word__action-btn--primary" id="wordSubmitBtn">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/js/word.js"></script>
+</body>
+</html>

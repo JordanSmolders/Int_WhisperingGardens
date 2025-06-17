@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNAL - Voice</title>
+    <link rel="stylesheet" href="src/css/signal.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <!-- Voice Screen -->
+    <div class="screen screen--voice">
+        <div class="voice">
+            <div class="voice__header">
+                <button class="voice__back" id="voiceBackBtn">
+                    < Back to Signal
+                </button>
+            </div>
+            
+            <div class="voice__content">
+                <h1 class="voice__title">Voice Signal</h1>
+                <p class="voice__description">
+                    Record a sound or sentence that reflects how you feel.
+                </p>
+                
+                <div class="voice__recorder-container">
+                    <div class="voice__visualizer" id="voiceVisualizer">
+                        <div class="voice__wave"></div>
+                        <div class="voice__wave"></div>
+                        <div class="voice__wave"></div>
+                        <div class="voice__wave"></div>
+                        <div class="voice__wave"></div>
+                    </div>
+                    
+                    <div class="voice__controls">
+                        <button class="voice__control-btn voice__control-btn--record" id="voiceRecordBtn">
+                            <div class="voice__record-circle"></div>
+                        </button>
+                    </div>
+                    
+                    <div class="voice__timer" id="voiceTimer">00:00</div>
+                </div>
+                
+                <div class="voice__actions">
+                    <button class="voice__action-btn voice__action-btn--secondary" id="voiceRetakeBtn">
+                        Retake
+                    </button>
+                    <button class="voice__action-btn voice__action-btn--primary" id="voiceUploadBtn">
+                        Upload
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/js/voice.js"></script>
+</body>
+</html>
