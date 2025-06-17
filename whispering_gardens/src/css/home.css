@@ -106,7 +106,6 @@
 }
 
 .zones-container {
-  padding: 0 1.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -156,6 +155,10 @@
   line-height: 109%;
   letter-spacing: -0.01594rem;
   width: 11.25rem;
+}
+
+.zone-2-content {
+  margin-left: 4rem;
 }
 
 .map-buttons {
@@ -230,6 +233,7 @@
 
 .zone-2-icon {
   background-color: var(--color-purple);
+  left: -15%;
 }
 
 .zone-3-icon {
@@ -376,5 +380,9 @@
   }
   .zone-card:nth-child(even) {
     margin: 0;
+  }
+
+  .zones-container {
+    padding-left: 10%;
   }
 }
