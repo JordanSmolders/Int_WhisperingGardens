@@ -34,6 +34,7 @@ class WordInput {
         
         document.getElementById('wordSubmitBtn').addEventListener('click', () => {
             this.submitWord();
+            window.location.href = 'succes_signal.html'
         });
         
       
